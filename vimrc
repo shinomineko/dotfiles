@@ -5,6 +5,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set number
+set ruler
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
