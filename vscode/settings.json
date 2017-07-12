@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite the default settings
+{
+	"editor.fontSize": 14,
+	"workbench.colorTheme": "Gruvbox Dark (Medium Contrast)",
+	"workbench.iconTheme": "vscode-icons",
+	"editor.minimap.enabled": false,
+	"editor.fontFamily": "Fira Code",
+	"editor.fontLigatures": true,
+	"editor.tabSize": 2,
+	"editor.wordWrap": "on"
+}
