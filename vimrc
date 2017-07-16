@@ -6,4 +6,4 @@ set softtabstop=2
 set expandtab
 set number
 set ruler
-
+set backupcopy=yes
