@@ -7,5 +7,7 @@
 	"editor.fontFamily": "Fira Code",
 	"editor.fontLigatures": true,
 	"editor.tabSize": 2,
-	"editor.wordWrap": "on"
+	"editor.wordWrap": "on",
+	"extensions.ignoreRecommendations": false,
+	"editor.insertSpaces": false
 }
