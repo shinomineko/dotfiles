@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 alias fucking="sudo"
 alias zcf="vim ~/.zshrc"
 alias c="clear"
+alias cat="ccat"
 
 # transfer.sh
 transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
