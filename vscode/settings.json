@@ -6,7 +6,7 @@
 	"editor.minimap.enabled": false,
 	"editor.fontFamily": "Fira Code",
 	"editor.fontLigatures": true,
-	"editor.tabSize": 2,
+	"editor.tabSize": 4,
 	"editor.wordWrap": "on",
 	"extensions.ignoreRecommendations": false,
 	"editor.insertSpaces": false
