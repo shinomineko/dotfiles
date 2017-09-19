@@ -1,0 +1,12 @@
+{
+	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Medium).tmTheme",
+	"font_face": "Fira Code",
+	"font_size": 13,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "Adaptive.sublime-theme",
+	"word_wrap": "true",
+	"scroll_past_end": true
+}
