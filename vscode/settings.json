@@ -3,5 +3,6 @@
     "workbench.colorTheme": "Gruvbox Dark (Medium Contrast)",
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 13,
-    "editor.fontLigatures": true
+    "editor.fontLigatures": true,
+    "terminal.external.osxExec": "iTerm.app"
 }
