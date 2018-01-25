@@ -5,7 +5,7 @@ export ZSH=/Users/shinomineko/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="shinomin"
+ZSH_THEME="dracula"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -86,6 +86,8 @@ alias fucking="sudo"
 alias zcf="vim ~/.zshrc"
 alias c="clear"
 alias cat="ccat"
+alias py="python"
+alias py3="python3"
 
 # transfer.sh
 transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
