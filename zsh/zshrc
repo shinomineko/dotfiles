@@ -86,7 +86,8 @@ alias fucking="sudo"
 alias zcf="vim ~/.zshrc"
 alias c="clear"
 alias cat="ccat"
-alias py="python"
+alias python="py"
+alias py="python2"
 alias py3="python3"
 
 # transfer.sh
