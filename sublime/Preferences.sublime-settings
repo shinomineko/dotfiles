@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/ayu/ayu-dark.tmTheme",
 	"font_face": "Fira Code",
 	"font_size": 13,
 	"ignored_packages":
@@ -7,7 +7,7 @@
 		"Vintage"
 	],
 	"scroll_past_end": true,
-	"theme": "Adaptive.sublime-theme",
+	"theme": "ayu-dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"word_wrap": "false"
 }

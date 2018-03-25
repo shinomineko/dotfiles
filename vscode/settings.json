@@ -1,10 +1,11 @@
 {
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Gruvbox Dark (Medium Contrast)",
+    "workbench.colorTheme": "Ayu Dark",
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
+    "python.pythonPath": "/usr/local/bin/python3",
     "workbench.startupEditor": "newUntitledFile"
 }
