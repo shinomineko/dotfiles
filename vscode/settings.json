@@ -1,8 +1,8 @@
 {
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "Ayu Dark",
-    "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 13,
+    "editor.fontFamily": "Iosevka",
+    "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
