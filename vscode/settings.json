@@ -7,5 +7,6 @@
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
     "python.pythonPath": "/usr/local/bin/python3",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "terminal.integrated.shell.osx": "/usr/local/bin/bash"
 }
