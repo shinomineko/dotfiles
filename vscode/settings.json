@@ -1,12 +1,13 @@
 {
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Ayu Dark",
-    "editor.fontFamily": "Iosevka",
+    "workbench.colorTheme": "Dracula",
+    "editor.fontFamily": "SF Mono",
     "editor.fontSize": 14,
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": false,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
     "python.pythonPath": "/usr/local/bin/python3",
     "workbench.startupEditor": "newUntitledFile",
-    "terminal.integrated.shell.osx": "/usr/local/bin/bash"
+    "terminal.integrated.shell.osx": "/usr/local/bin/bash",
+    "editor.wordWrap": "on"
 }
