@@ -1,9 +1,8 @@
 {
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Dracula",
+    "workbench.colorTheme": "Gruvbox Dark (Hard)",
     "editor.fontFamily": "Iosevka",
     "editor.fontSize": 14,
-    "editor.fontLigatures": false,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
     "python.pythonPath": "/usr/local/bin/python3",
