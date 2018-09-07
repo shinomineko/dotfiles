@@ -54,3 +54,6 @@ shift + alt - n : chunkc tiling::window --send-to-desktop next
 shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
 shift + alt - 2 : chunkc tiling::window --send-to-desktop 2
 shift + alt - 3 : chunkc tiling::window --send-to-desktop 3
+
+# for native screenshot application
+cmd + shift - 4 -> : chunkc border::clear
