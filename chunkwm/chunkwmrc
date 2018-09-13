@@ -45,6 +45,7 @@ chunkc set mouse_follows_focus           intrinsic
 chunkc set window_float_next             0
 chunkc set window_region_locked          1
 
+chunkc set mouse_modifier				 fn
 chunkc set mouse_move_window             \"shift 1\"
 chunkc set mouse_resize_window           \"ctrl shift 1\"
 chunkc set mouse_motion_interval         35
