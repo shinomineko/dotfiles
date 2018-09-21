@@ -28,8 +28,8 @@ ctrl + alt - r : chunkc tiling::desktop --rotate 90
 ctrl + alt - 0 : chunkc tiling::desktop --equalize
 
 # move focused window to desktop
-ctrl + alt - p : chunkc tiling::window --send-to-desktop prev
-ctrl + alt - n : chunkc tiling::window --send-to-desktop next
+ctrl + alt - left : chunkc tiling::window --send-to-desktop prev
+ctrl + alt - right : chunkc tiling::window --send-to-desktop next
 ctrl + alt - 1 : chunkc tiling::window --send-to-desktop 1
 ctrl + alt - 2 : chunkc tiling::window --send-to-desktop 2
 ctrl + alt - 3 : chunkc tiling::window --send-to-desktop 3
