@@ -1,12 +1,13 @@
 export PS1="\h \w \\$ \[$(tput sgr0)\]"
 export PATH="$PATH:~/platform-tools"
 
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 if [ $ITERM_SESSION_ID ]; then
   export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
 fi
 
-alias bcf="vim ~/.bashrc"
-alias c="clear"
+alias cl="clear"
 alias cat="ccat"
 alias please="sudo"
 
