@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).tmTheme",
+	"color_scheme": "Packages/Theme - Cyanide/Cyanide - Alert.tmTheme",
 	"font_face": "Iosevka Medium",
 	"font_options":
 	[
@@ -8,11 +8,11 @@
 	"font_size": 14,
 	"ignored_packages":
 	[
-		"Markdown",
+		"0_package_control_loader",
 		"Vintage"
 	],
 	"scroll_past_end": true,
 	"theme": "Adaptive.sublime-theme",
-	"word_wrap": "true",
-	"translate_tabs_to_spaces": true
+	"translate_tabs_to_spaces": true,
+	"word_wrap": "true"
 }
