@@ -1,0 +1,11 @@
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+cache/
+out/
+stdout
+.idea/
+*.pyc
+.mypy_cache/
+.vagrant/
