@@ -1,17 +1,17 @@
 [user]
-	name = ***REMOVED***
-	email = sc@shinomin.me
+    name = ***REMOVED***
+    email = sc@shinomin.me
 
 [color]
     ui = auto
 
 [core]
-	excludesfile = ~/dotfiles/git/gitignore
+    excludesfile = ~/dotfiles/git/gitignore
 
 # Repo
 
 [url "git@github.com:"]
-	insteadOf = "https://github.com/"
+    insteadOf = "https://github.com/"
 
 [url "git@gitlab.com:"]
-	insteadOf = "https://gitlab.com/"
+    insteadOf = "https://gitlab.com/"
