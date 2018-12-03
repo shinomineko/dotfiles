@@ -8,11 +8,11 @@
 	"font_size": 14,
 	"ignored_packages":
 	[
-		"0_package_control_loader",
 		"Vintage"
 	],
 	"scroll_past_end": true,
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"word_wrap": "true"
+	"word_wrap": false,
+	"open_files_in_new_window": false
 }
