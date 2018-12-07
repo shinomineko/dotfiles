@@ -8,3 +8,5 @@ set smarttab
 set number
 set ruler
 set backupcopy=yes
+set ignorecase
+set smartcase
