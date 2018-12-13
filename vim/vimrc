@@ -1,13 +1,19 @@
 syntax on
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smarttab
+
 set number
 set ruler
+
 set backupcopy=yes
+
 set ignorecase
 set smartcase
+
 set fileformat=unix
 
+set mouse=a
