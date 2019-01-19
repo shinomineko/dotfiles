@@ -10,3 +10,6 @@ alias ll="ls -lh"
 alias la="ls -lha"
 alias lt="ls -lrt"
 
+function cheat() {
+  curl cht.sh/"$1"
+}
