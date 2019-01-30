@@ -1,15 +1,33 @@
 export PS1="\h \w \\$ \[$(tput sgr0)\]"
 
+
+# Node
+PATH="/usr/local/opt/node@8/bin:$PATH"
+
+# Golang
+GOPATH=$HOME/go
+export GOPATH
+
+# Bash Completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# iTerm Title
 if [ $ITERM_SESSION_ID ]; then
   export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
 fi
 
+
+# Aliases
 alias ll="ls -lh"
 alias la="ls -lha"
 alias lt="ls -lrt"
 
+
+# Custom Functions
 function cheat() {
   curl cht.sh/"$1"
 }
+
+
+# Finalizing
+export PATH
