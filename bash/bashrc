@@ -11,11 +11,6 @@ export GOPATH
 # Bash Completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-# iTerm Title
-if [ $ITERM_SESSION_ID ]; then
-  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
-fi
-
 
 # Aliases
 alias ll="ls -lh"
@@ -25,6 +20,7 @@ alias lt="ls -lrt"
 alias gcc="gcc-8"
 alias g++="g++-8"
 
+
 # Custom Functions
 function cheat() {
   curl cht.sh/"$1"
@@ -33,3 +29,4 @@ function cheat() {
 
 # Finalizing
 export PATH
+
