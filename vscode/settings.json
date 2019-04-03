@@ -4,7 +4,7 @@
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
     "workbench.startupEditor": "newUntitledFile",
-    "terminal.integrated.shell.osx": "/bin/bash",
+    "terminal.integrated.shell.osx": "/usr/local/bin/bash",
     "editor.insertSpaces": true,
     "editor.wordWrap": "off",
     "files.eol": "\n",
