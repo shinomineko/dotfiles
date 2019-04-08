@@ -10,7 +10,7 @@ export HISEFILESIZE=10000
 
 
 # Node
-PATH="/usr/local/opt/node@8/bin:$PATH"
+PATH="/usr/local/opt/node@10/bin:$PATH"
 
 # Golang
 GOPATH=$HOME/go
