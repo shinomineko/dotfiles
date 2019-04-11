@@ -1,5 +1,7 @@
 set fish_greeting  ''
 
+set -Ux EDITOR  vim
+
 # History
 set HISTSIZE  10000
 set HISTFILESIZE  10000
