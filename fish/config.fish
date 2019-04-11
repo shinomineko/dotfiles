@@ -14,7 +14,7 @@ set -x PATH $PATH /usr/local/sbin
 set -x PATH $PATH /usr/local/opt/node@10/bin
 
 # Go
-set GOPATH $HOME/go
+set -x GOPATH $HOME/go
 
 
 # Aliases
