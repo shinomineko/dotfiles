@@ -1,6 +1,6 @@
 " vim plug
 call plug#begin('~/.vim/plugged')
-Plug 'nikitavoloboev/vim-monokai-night'
+Plug 'jtalowell/mombasa.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug '/usr/local/opt/fzf'
@@ -10,7 +10,7 @@ call plug#end()
 
 set termguicolors
 syntax on
-colorscheme monokai-night
+colorscheme mombasa
 
 set tabstop=4
 set shiftwidth=4
