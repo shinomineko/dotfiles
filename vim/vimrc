@@ -1,7 +1,6 @@
 " vim plug
 call plug#begin('~/.vim/plugged')
 Plug 'jtalowell/mombasa.vim'
-Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
