@@ -4,12 +4,12 @@
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
     "workbench.startupEditor": "newUntitledFile",
-    "terminal.integrated.shell.osx": "/usr/local/bin/bash",
+    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
     "editor.insertSpaces": true,
     "editor.wordWrap": "off",
     "files.eol": "\n",
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.colorTheme": "Monokai Night"
+    "workbench.colorTheme": "crayon-vscode"
 }
