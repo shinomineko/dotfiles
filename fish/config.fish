@@ -10,9 +10,6 @@ set HISTFILESIZE  10000
 # Homebrew
 set -x PATH $PATH /usr/local/sbin
 
-# Node
-set -x PATH $PATH /usr/local/opt/node@10/bin
-
 # Go
 set -x GOPATH $HOME/go
 
