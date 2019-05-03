@@ -12,9 +12,6 @@ export HISEFILESIZE=10000
 # Homebrew
 PATH="/usr/local/sbin:$PATH"
 
-# Node
-PATH="/usr/local/opt/node@10/bin:$PATH"
-
 # Golang
 GOPATH=$HOME/go
 export GOPATH
