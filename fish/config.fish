@@ -13,6 +13,9 @@ set -x PATH $PATH /usr/local/sbin
 # Go
 set -x GOPATH $HOME/go
 
+# Rust
+set -x PATH $PATH $HOME/.cargo/bin
+
 
 # Aliases
 alias lt "ls -lrt"
