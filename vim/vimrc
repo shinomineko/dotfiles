@@ -7,9 +7,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
-set termguicolors
 syntax on
-colorscheme mombasa
+set termguicolors
+colorscheme onehalflight
 
 set tabstop=4
 set shiftwidth=4
