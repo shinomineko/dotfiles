@@ -149,6 +149,22 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
 
 
+# Mail.app
+
+echo ""
+echo "Disable send and reply animations in Mail.app"
+defaults write com.apple.mail DisableReplyAnimations -bool true
+defaults write com.apple.mail DisableSendAnimations -bool true
+
+echo ""
+echo "Copy email addresses as foo@bar.com instead of Foo Bar <foo@bar.com> in Mail.app"
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
+
+echo ""
+echo "Disable inline attachments (just show the icons)"
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
+
+
 # TextEdit
 
 echo ""
@@ -161,6 +177,6 @@ defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 
-for app in "Dock" "Finder" "Google Chrome" "Safari" "SystemUIServer"; do
+for app in "Dock" "Finder" "Google Chrome" "Mail" "Safari" "SystemUIServer"; do
   killall "$app" > /dev/null 2>&1
 done
