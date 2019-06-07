@@ -1,3 +1,5 @@
+#!/usr/bin/env fish
+
 set fish_greeting  ''
 
 set -Ux EDITOR  vim
@@ -20,6 +22,6 @@ set -x PATH $PATH $HOME/.cargo/bin
 # Aliases
 alias lt "ls -lrt"
 
-alias gcc "gcc-9"
+alias gcc "gcc-8"
 alias g++ "g++-9"
 
