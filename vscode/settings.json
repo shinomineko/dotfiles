@@ -11,6 +11,6 @@
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.colorTheme": "GitHub Plus",
+    "workbench.colorTheme": "crayon-vscode",
     "python.jediEnabled": false
 }
