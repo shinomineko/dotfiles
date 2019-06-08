@@ -9,7 +9,7 @@ call plug#end()
 
 syntax on
 set termguicolors
-colorscheme onehalflight
+colorscheme mombasa
 
 set tabstop=4
 set shiftwidth=4
