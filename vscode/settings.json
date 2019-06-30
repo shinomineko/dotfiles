@@ -10,7 +10,6 @@
     "files.eol": "\n",
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "GitHub Plus",
     "python.jediEnabled": false
 }
