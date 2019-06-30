@@ -22,6 +22,6 @@ set -x PATH $PATH $HOME/.cargo/bin
 # Aliases
 alias lt "ls -lrt"
 
-alias gcc "gcc-8"
+alias gcc "gcc-9"
 alias g++ "g++-9"
 
