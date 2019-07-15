@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "Iosevka",
+    "editor.fontFamily": "Iosevka SS08",
     "editor.fontSize": 14,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
@@ -10,6 +10,6 @@
     "files.eol": "\n",
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
-    "workbench.colorTheme": "GitHub Plus",
+    "workbench.colorTheme": "Solarized Dark",
     "python.jediEnabled": false
 }
