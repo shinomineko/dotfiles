@@ -17,6 +17,9 @@ export GOPATH
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
+# fzf for bash history
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 
 # Aliases
 alias ll="ls -lh"
