@@ -10,6 +10,6 @@
     "files.eol": "\n",
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
-    "workbench.colorTheme": "Solarized Dark",
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "workbench.colorTheme": "Nord"
 }
