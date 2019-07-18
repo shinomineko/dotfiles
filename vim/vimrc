@@ -5,11 +5,12 @@ Plug 'itchyny/lightline.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 syntax on
 set termguicolors
-colorscheme mombasa
+colorscheme nord
 
 set tabstop=4
 set shiftwidth=4
@@ -42,4 +43,4 @@ set undodir=~/.vim/undodir
 " lightline
 set laststatus=2
 set noshowmode
-
+let g:lightline = { 'colorscheme': 'nord' }
