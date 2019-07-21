@@ -10,7 +10,7 @@ call plug#end()
 
 syntax on
 set termguicolors
-colorscheme nord
+colorscheme monotone
 
 set tabstop=4
 set shiftwidth=4
@@ -43,4 +43,3 @@ set undodir=~/.vim/undodir
 " lightline
 set laststatus=2
 set noshowmode
-let g:lightline = { 'colorscheme': 'nord' }
