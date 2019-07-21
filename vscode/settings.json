@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "Iosevka SS08",
+    "editor.fontFamily": "Pragmata Pro Mono",
     "editor.fontSize": 14,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
@@ -11,5 +11,6 @@
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
     "python.jediEnabled": false,
-    "workbench.colorTheme": "Nord"
+    "workbench.colorTheme": "Nord",
+    "editor.fontLigatures": true
 }
