@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "Pragmata Pro Mono",
+    "editor.fontFamily": "Pragmata Pro",
     "editor.fontSize": 14,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
