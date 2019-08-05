@@ -9,3 +9,4 @@ stdout
 *.pyc
 .mypy_cache/
 .vagrant/
+*.swp
