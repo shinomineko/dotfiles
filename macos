@@ -91,9 +91,6 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 running "Show the full URL in the address bar (note: this still hides the scheme)"
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
-running "Set Safari’s home page to blank page for faster loading"
-defaults write com.apple.Safari HomePage -string "about:blank"
-
 running "Prevent Safari from opening ‘safe’ files automatically after downloading"
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
