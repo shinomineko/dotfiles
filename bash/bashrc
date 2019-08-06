@@ -3,11 +3,12 @@
 # Prompt
 export PS1="\[\e[0;37m\]\w \[\e[0;37m\]$ \[\e[0m\]"
 
-
 # History
 export HISTSIZE=10000
 export HISEFILESIZE=10000
 
+# Homebrew's sbin
+PATH="/usr/local/sbin:$PATH"
 
 # Bash Completion
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
@@ -16,8 +17,14 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 # fzf for bash history
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Homebrew's sbin
-PATH="/usr/local/sbin:$PATH"
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
 
 
 # Aliases
