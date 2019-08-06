@@ -16,6 +16,9 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 # fzf for bash history
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Homebrew's sbin
+PATH="/usr/local/sbin:$PATH"
+
 
 # Aliases
 alias ll="ls -lh"
