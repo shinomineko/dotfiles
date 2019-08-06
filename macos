@@ -10,9 +10,6 @@ osascript -e 'tell application "System Preferences" to quit'
 
 # General UI/UX
 
-running "Disable transparency"
-defaults write com.apple.universalaccess reduceTransparency -bool true
-
 running "Show scrollbars base on mouse/trackpad"
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 
