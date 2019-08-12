@@ -7,6 +7,9 @@ call plug#end()
 
 syntax on
 set termguicolors
+
+let g:monotone_color = [10, 50, 80]
+let g:monotone_emphasize_comments = 1
 colorscheme monotone
 
 set tabstop=4
