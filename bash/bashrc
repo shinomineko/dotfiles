@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
-# Prompt
-export PS1="\[\e[0;32m\]\w \[\e[0;37m\]$ \[\e[0m\]"
+umask 077
 
-# History
-export HISTSIZE=10000
-export HISEFILESIZE=10000
+PS1="\[\e[0;32m\]\w \[\e[0;37m\]$ \[\e[0m\]"
+HISTSIZE=10000
+HISEFILESIZE=10000
+EDITOR="vi"
 
-# Homebrew's sbin
+export PS1
+export HISTSIZE
+export HISTFILESIZE
+export EDITOR
+
 PATH="/usr/local/sbin:$PATH"
 
-# Bash Completion
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-# fzf for bash history
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
@@ -26,14 +28,8 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-# Golang
 export GOPATH="$HOME/go"
-
-
-# Aliases
-alias ll="ls -lh"
-alias la="ls -lha"
-alias lt="ls -lrt"
+PATH="$PATH:$GOPATH/bin"
 
 
 # Finalizing
