@@ -1,12 +1,30 @@
+# Editor files
+*~
+*.swp
+
+# System files
 .DS_Store*
 ehthumbs.db
 Icon?
 Thumbs.db
-cache/
-out/
-stdout
-.idea/
+
+# Temp files
+dump.rdb
+
+# Per-project files
+*.iml
 *.pyc
+.dev/
+.dir-locals.el
+.env
+.envrc
+.gems/
+.generators/
+.idea/
 .mypy_cache/
 .vagrant/
-*.swp
+cache/
+out/
+
+# User files
+stdout
