@@ -12,9 +12,9 @@ let g:monotone_color = [10, 50, 80]
 let g:monotone_emphasize_comments = 1
 colorscheme monotone
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set smarttab
 
@@ -32,10 +32,10 @@ set mouse=a
 
 " undodir
 if !isdirectory($HOME."/.vim")
-    call mkdir($HOME."/.vim", "", 0770)
+  call mkdir($HOME."/.vim", "", 0770)
 endif
 if !isdirectory($HOME."/.vim/undodir")
-    call mkdir($HOME."/.vim/undodir", "", 0700)
+  call mkdir($HOME."/.vim/undodir", "", 0700)
 endif
 set undofile
 set undodir=~/.vim/undodir
