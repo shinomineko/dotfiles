@@ -12,6 +12,6 @@
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
     "editor.fontLigatures": true,
-    "workbench.colorTheme": "Verdandi",
+    "workbench.colorTheme": "Verdandi Alter",
     "go.formatTool": "gofmt"
 }
