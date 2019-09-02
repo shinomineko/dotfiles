@@ -1,16 +1,17 @@
 " vim plug
 call plug#begin('~/.vim/plugged')
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/seoul256.vim'
 call plug#end()
 
 syntax on
 set termguicolors
 
-let g:monotone_color = [10, 50, 80]
-let g:monotone_emphasize_comments = 1
-colorscheme monotone
+"let g:monotone_color = [10, 50, 80]
+"let g:monotone_emphasize_comments = 1
+"colorscheme monotone
+colorscheme seoul256-light
+set background=light
 
 set tabstop=2
 set shiftwidth=2
