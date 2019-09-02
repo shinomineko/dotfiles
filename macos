@@ -131,6 +131,9 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 
 # TextEdit
 
+running "New file instead of open panel when start"
+defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
+
 running "Use plain text mode for new TextEdit documents"
 defaults write com.apple.TextEdit RichText -int 0
 
