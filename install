@@ -9,7 +9,7 @@ running "Install Homebrew"
 brew --version
 
 running "Install Ansible"
-brew install ansible
+brew install python ansible
 ansible --version
 
 running "Clone Ansible roles"
