@@ -10,8 +10,9 @@ set termguicolors
 "let g:monotone_color = [10, 50, 80]
 "let g:monotone_emphasize_comments = 1
 "colorscheme monotone
-colorscheme seoul256-light
-set background=light
+let g:seoul256_background = 234
+colorscheme seoul256
+set background=dark
 
 set tabstop=2
 set shiftwidth=2
