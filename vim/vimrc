@@ -38,4 +38,3 @@ if !isdirectory($HOME."/.vim/undodir")
 endif
 set undofile
 set undodir=~/.vim/undodir
-
