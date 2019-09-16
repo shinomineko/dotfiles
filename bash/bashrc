@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-umask 077
-
 PS1="\h \w \$ "
 HISTSIZE=10000
 EDITOR="vi"
@@ -29,7 +27,4 @@ fe() {
 export GOPATH="$HOME/go"
 PATH="$PATH:$GOPATH/bin"
 
-
-# Finalizing
 export PATH
-
