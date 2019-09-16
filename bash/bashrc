@@ -2,14 +2,12 @@
 
 umask 077
 
-PS1="\[\e[0;32m\]\w \[\e[0;37m\]$ \[\e[0m\]"
+PS1="\h \w \$ "
 HISTSIZE=10000
-HISEFILESIZE=10000
 EDITOR="vi"
 
 export PS1
 export HISTSIZE
-export HISTFILESIZE
 export EDITOR
 
 PATH="/usr/local/sbin:$PATH"
