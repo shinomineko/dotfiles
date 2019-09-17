@@ -7,8 +7,8 @@ call plug#end()
 syntax on
 set termguicolors
 
-let g:seoul256_background = 233
-colorscheme seoul256
+let g:monotone_emphasize_comments = 1
+colorscheme monotone
 set background=dark
 
 set tabstop=2
@@ -38,3 +38,4 @@ if !isdirectory($HOME."/.vim/undodir")
 endif
 set undofile
 set undodir=~/.vim/undodir
+
