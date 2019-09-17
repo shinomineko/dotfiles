@@ -1,7 +1,6 @@
 " vim plug
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/seoul256.vim'
 call plug#end()
 
 syntax on
