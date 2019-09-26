@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+[ -r ~/.bash_priv ] && . ~/.bash_priv
 
 alias ..='cd ..'
 
@@ -6,20 +6,37 @@ alias vi='vim'
 
 case "$(uname)" in
   Darwin)
-    alias flushdns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say cache flushed'
+    alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; say cache flushed'
   ;;
 esac
 
-export PS1="\h \w \$ "
-export HISTSIZE=10000
-export EDITOR="vim"
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
 
-PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:$GOBIN"
+export PS1="\h \w \$ "
 
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+export EDITOR="vim"
+
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+export HISTCONTROL=ignoreboth:erasedups
+export HISTFILE=~/.bash_history
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+shopt -s histappend
+shopt -s cmdhist
+shopt -s lithist
+
+shopt -s checkwinsize
+shopt -s checkhash
+shopt -s no_empty_cmd_completion
+
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
@@ -29,8 +46,3 @@ fe() {
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
-
-export GOPATH="$HOME/go"
-PATH="$PATH:$GOPATH/bin"
-
-export PATH
