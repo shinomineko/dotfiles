@@ -5,36 +5,34 @@ call plug#end()
 
 syntax on
 set termguicolors
-
+set background=dark
 let g:monotone_emphasize_comments = 1
 colorscheme monotone
-set background=dark
+
+set encoding=utf-8
+set autoread
+set autoindent
+set backspace=indent,eol,start
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set mouse=a
+
+set noerrorbells
+set number
+set ruler
+set showcmd
+set nobackup
+set fileformats=unix,dos,mac
+set nocursorcolumn
+set nocursorline
 
 set tabstop=2
 set shiftwidth=2
-set softtabstop=2
 set expandtab
-set smarttab
 
-set number
-set ruler
-
-set backupcopy=yes
-
-set ignorecase
-set smartcase
-
-set fileformat=unix
-
-set mouse=a
-
-" undodir
-if !isdirectory($HOME."/.vim")
-  call mkdir($HOME."/.vim", "", 0770)
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.cache/vim
 endif
-if !isdirectory($HOME."/.vim/undodir")
-  call mkdir($HOME."/.vim/undodir", "", 0700)
-endif
-set undofile
-set undodir=~/.vim/undodir
-
