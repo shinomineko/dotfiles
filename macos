@@ -39,6 +39,9 @@ defaults write com.apple.dock show-recents -bool false
 running "Setting the icon size of Dock items to 24 pixels"
 defaults write com.apple.dock tilesize -int 24
 
+running "Setting the icon size of Dock items to 56 pixels when using magnification"
+defaults write com.apple.dock largesize -int 56
+
 running "Speed up Mission Control animations"
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
