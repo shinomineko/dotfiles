@@ -1,7 +1,4 @@
-[ -r ~/.bash_priv ] && . ~/.bash_priv
-
 alias ..='cd ..'
-
 alias vi='vim'
 
 case "$(uname)" in
@@ -11,8 +8,10 @@ case "$(uname)" in
 esac
 
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:$GOBIN"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 export PS1="\h \w \$ "
+
+[ -r ~/.bash_priv ] && . ~/.bash_priv
 
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
