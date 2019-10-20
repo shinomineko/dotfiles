@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "Pragmata Pro",
+    "editor.fontFamily": "'Iosevka Slab', monospace",
     "editor.fontSize": 14,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
@@ -12,7 +12,7 @@
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
     "editor.fontLigatures": true,
-    "workbench.colorTheme": "Verdandi",
+    "workbench.colorTheme": "Dolch Light",
     "go.formatTool": "gofmt",
     "go.lintTool": "golangci-lint",
     "editor.formatOnSave": true,
