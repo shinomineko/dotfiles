@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Iosevka Slab', monospace",
+    "editor.fontFamily": "'Source Code Pro', monospace",
     "editor.fontSize": 14,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
