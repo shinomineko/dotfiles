@@ -1,6 +1,7 @@
 " vim plug
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 syntax on
@@ -19,6 +20,7 @@ set ignorecase
 set smartcase
 set mouse=a
 
+set laststatus=2
 set noerrorbells
 set number
 set ruler
