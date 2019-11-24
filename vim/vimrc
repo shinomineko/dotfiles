@@ -6,9 +6,7 @@ call plug#end()
 
 syntax on
 set termguicolors
-set background=dark
-let g:monotone_emphasize_comments = 1
-colorscheme monotone
+let g:lightline={'colorscheme':'PaperColor'}
 
 set encoding=utf-8
 set autoread
