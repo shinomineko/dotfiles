@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Source Code Pro', monospace",
+    "editor.fontFamily": "'SF Mono', monospace",
     "editor.fontSize": 14,
     "terminal.external.osxExec": "iTerm.app",
     "explorer.confirmDelete": false,
@@ -12,9 +12,7 @@
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
     "editor.fontLigatures": true,
-    "workbench.colorTheme": "Dolch Light",
-    "go.formatTool": "gofmt",
-    "go.lintTool": "golangci-lint",
+    "workbench.colorTheme": "Default Light+",
     "editor.formatOnSave": true,
     "editor.tokenColorCustomizations": {
         "textMateRules": [
