@@ -13,8 +13,8 @@ export PS1="\h \w \$ "
 
 [ -r ~/.bash_priv ] && . ~/.bash_priv
 
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh" && export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/etc/profile.d/bash_completion.sh" ]] && . "/etc/profile.d/bash_completion.sh" && export BASH_COMPLETION_COMPAT_DIR="/etc/bash_completion.d"
 
 export EDITOR="vim"
 
