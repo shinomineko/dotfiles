@@ -33,9 +33,6 @@ shopt -s checkwinsize
 shopt -s checkhash
 shopt -s no_empty_cmd_completion
 
-bind "set completion-ignore-case on"
-bind "set show-all-if-ambiguous on"
-
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
