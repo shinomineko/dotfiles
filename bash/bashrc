@@ -1,5 +1,7 @@
 alias ..='cd ..'
 alias vi='vim'
+alias ls='ls --color'
+alias ll='ls -l --color'
 
 [[ -r ~/.bash_priv ]] && . ~/.bash_priv
 
