@@ -6,12 +6,10 @@ echo " -> Installing packages"
 sudo apt install -qq \
   aria2 \
   curl \
-  fzf \
   git \
   htop \
   jq \
   less \
-  ripgrep \
   shellcheck \
   tree \
   unrar \
@@ -20,6 +18,7 @@ sudo apt install -qq \
   wget \
   youtube-dl \
   zip \
+  --no-install-recommends \
   
 VIM_PLUG="${HOME}/.vim/autoload/plug.vim"
 if [ ! -f ${VIM_PLUG} ]; then
@@ -31,6 +30,13 @@ if [ ! -f ${VIM_PLUG} ]; then
   git clone "https://github.com/airblade/vim-gitgutter.git"
   git clone "https://github.com/itchyny/lightline.vim.git"
   popd
+fi
+
+if [ ! -d "${HOME}/.fzf" ]; then
+  echo " -> Installing fzf"
+  git clone https://github.com/junegunn/fzf "${HOME}/.fzf"
+  ${HOME}/.fzf/install --bin --64 --no-bash --no-zsh --no-fish
+  sudo ln -sfn ${HOME}/.fzf/bin/fzf /usr/bin/fzf
 fi
 
 echo ""
