@@ -3,7 +3,7 @@
 set -eu
 
 echo " -> Installing packages"
-sudo apt install -qq \
+sudo apt-get install -qq \
   aria2 \
   curl \
   git \
