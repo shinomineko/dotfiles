@@ -4,7 +4,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 call plug#end()
 
-syntax on
+syntax off
 set termguicolors
 let g:lightline={'colorscheme':'PaperColor'}
 
