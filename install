@@ -32,12 +32,5 @@ if [ ! -f ${VIM_PLUG} ]; then
   popd
 fi
 
-if [ ! -d "${HOME}/.fzf" ]; then
-  echo " -> Installing fzf"
-  git clone https://github.com/junegunn/fzf "${HOME}/.fzf"
-  ${HOME}/.fzf/install --bin --64 --no-bash --no-zsh --no-fish
-  sudo ln -sfn ${HOME}/.fzf/bin/fzf /usr/bin/fzf
-fi
-
 echo ""
 echo " -> Done!"
