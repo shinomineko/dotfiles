@@ -32,5 +32,33 @@ if [ ! -f ${VIM_PLUG} ]; then
   popd
 fi
 
+TERRAFORM_VERSION="0.12.25"
+if [ ! -x "$(command -v terraform)" ]; then
+  echo " -> Installing Terraform"
+  curl -fLO https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+  unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+  sudo mv terraform /usr/local/bin/terraform
+  sudo chmod 755 /usr/local/bin/terraform
+  rm -f terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+fi
+
+PACKER_VERSION="1.5.6"
+if [ ! -x "$(command -v packer)" ]; then
+  echo " -> Installing Packer"
+  curl -fLO https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
+  unzip packer_${PACKER_VERSION}_linux_amd64.zip
+  sudo mv packer /usr/local/bin/packer
+  sudo chmod 755 /usr/local/bin/packer
+  rm -f packer_${PACKER_VERSION}_linux_amd64.zip
+fi
+
+YQ_VERSION="3.3.0"
+if [ ! -x "$(command -v yq)" ]; then
+  echo " -> Install yq"
+  curl -fLO https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64
+  sudo mv yq_linux_amd64 /usr/local/bin/yq
+  sudo chmod 755 /usr/local/bin/yq
+fi
+
 echo ""
 echo " -> Done!"
