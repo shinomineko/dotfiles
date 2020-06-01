@@ -2,6 +2,9 @@
     name = ***REMOVED***
     email = sc@shinomin.me
 
+[includeIf "gitdir:~/src/work/"]
+    path = ~/src/work/.gitconfig
+
 [color]
     ui = auto
 
