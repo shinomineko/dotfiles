@@ -8,7 +8,6 @@ sudo apt-get install -qq \
   curl \
   git \
   htop \
-  jq \
   less \
   make \
   shellcheck \
@@ -59,6 +58,14 @@ if [ ! -x "$(command -v yq)" ]; then
   curl -fLO https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64
   sudo mv yq_linux_amd64 /usr/local/bin/yq
   sudo chmod 755 /usr/local/bin/yq
+fi
+
+JQ_VERSION="1.6"
+if [ ! -x "$(command -v jq)" ]; then
+  echo " -> Install jq"
+  curl -fLO https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64
+  sudo mv jq-linux64 /usr/local/bin/jq
+  sudo chmod 755 /usr/local/bin/jq
 fi
 
 echo ""
