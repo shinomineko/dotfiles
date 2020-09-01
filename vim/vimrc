@@ -6,6 +6,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'hashivim/vim-terraform'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 syntax on
@@ -13,6 +14,9 @@ set termguicolors
 let g:PaperColor_Theme_Options = {'theme':{'default':{'transparent_background': 1}}}
 colorscheme PaperColor
 let g:lightline={'colorscheme':'PaperColor'}
+
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 set encoding=utf-8
 set autoread
