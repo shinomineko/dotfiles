@@ -37,6 +37,7 @@ set nobackup
 set fileformats=unix,dos,mac
 set nocursorcolumn
 set nocursorline
+set nowrap
 
 set tabstop=2
 set shiftwidth=2
