@@ -12,7 +12,7 @@ alias ll='ls -lh --color'
 export PATH="~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 [[ -r ~/.bash_priv ]] && . ~/.bash_priv
 [[ -r ~/.fzf.bash ]] && . ~/.fzf.bash
-export PS1="\h \w \$ "
+export PS1="\w \$(git branch 2>/dev/null | grep '^*') \$ "
 export EDITOR="vim"
 
 export LC_ALL="en_US.UTF-8"
