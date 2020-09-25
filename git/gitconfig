@@ -2,6 +2,12 @@
     name = ***REMOVED***
     email = sc@shinomin.me
 
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+
 [includeIf "gitdir:~/src/work/"]
     path = ~/src/work/.gitconfig
 
