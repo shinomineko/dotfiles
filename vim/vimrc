@@ -5,6 +5,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'NLKNguyen/papercolor-theme'
 
+Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
@@ -32,6 +33,7 @@ set mouse=a
 set laststatus=2
 set noerrorbells
 set number
+set rnu
 set ruler
 set showcmd
 set nobackup
