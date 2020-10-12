@@ -9,7 +9,7 @@ alias ll='ls -lh --color'
 # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
-export PATH="~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 [[ -r ~/.bash_priv ]] && . ~/.bash_priv
 [[ -r ~/.fzf.bash ]] && . ~/.fzf.bash
 export PS1="\w \$(git branch 2>/dev/null | grep '^*') \$ "
