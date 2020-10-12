@@ -19,7 +19,10 @@
   editor = vim
 
 [pull]
-  rebase = false
+  rebase = true
+
+[push]
+  default = nothing
 
 [github]
   user = shinomineko
