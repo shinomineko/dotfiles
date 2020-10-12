@@ -18,8 +18,12 @@
   excludesfile = ~/dotfiles/git/gitignore
   editor = vim
 
+[pull]
+  rebase = false
+
 [github]
   user = shinomineko
 
 [url "git@github.com:"]
   insteadOf = "https://github.com/"
+
