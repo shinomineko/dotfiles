@@ -1,25 +1,25 @@
 [user]
-    name = ***REMOVED***
-    email = sc@shinomin.me
+  name = ***REMOVED***
+  email = sc@shinomin.me
 
 [alias]
-    st = status
-    ci = commit
-    co = checkout
-    br = branch
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
 
 [includeIf "gitdir:~/src/work/"]
-    path = ~/src/work/.gitconfig
+  path = ~/src/work/.gitconfig
 
 [color]
-    ui = auto
+  ui = auto
 
 [core]
-    excludesfile = ~/dotfiles/git/gitignore
-    editor = vim
+  excludesfile = ~/dotfiles/git/gitignore
+  editor = vim
 
 [github]
-    user = shinomineko
+  user = shinomineko
 
 [url "git@github.com:"]
-    insteadOf = "https://github.com/"
+  insteadOf = "https://github.com/"
