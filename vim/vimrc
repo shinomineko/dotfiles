@@ -1,6 +1,5 @@
 " vim plug
 call plug#begin('~/.vim/plugged')
-Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'NLKNguyen/papercolor-theme'
