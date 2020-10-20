@@ -18,9 +18,6 @@
   excludesfile = ~/dotfiles/git/gitignore
   editor = vim
 
-[pull]
-  rebase = true
-
 [push]
   default = nothing
 
