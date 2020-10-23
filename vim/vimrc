@@ -10,11 +10,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 syntax on
-set termguicolors
-set background=dark
-let g:PaperColor_Theme_Options = {'theme':{'default':{'transparent_background': 1}}}
-colorscheme PaperColor
-let g:lightline={'colorscheme':'PaperColor'}
+colorscheme dim
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
