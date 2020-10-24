@@ -35,7 +35,10 @@ set nobackup
 set fileformats=unix,dos,mac
 set nocursorcolumn
 set nocursorline
-set nowrap
+set wrap
+set linebreak
+set formatoptions-=t
+let g:EditorConfig_disable_rules = ['max_line_length']
 
 set tabstop=2
 set shiftwidth=2
