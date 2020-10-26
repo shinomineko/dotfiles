@@ -44,7 +44,3 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-if has('persistent_undo')
-  set undofile
-  set undodir=~/.cache/vim
-endif
