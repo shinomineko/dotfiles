@@ -9,7 +9,7 @@
   br = branch
 
 [includeIf "gitdir:~/src/work/"]
-  path = ~/src/work/.gitconfig
+  path = ~/src/work/git/config
 
 [color]
   ui = auto
