@@ -11,7 +11,7 @@ alias lll='ls -lha --color'
 [[ -r ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-[[ -r ~/.bash_priv ]] && . ~/.bash_priv
+[[ -r ~/.bash_private ]] && . ~/.bash_private
 [[ -r ~/.fzf.bash ]] && . ~/.fzf.bash
 export PS1="\w \$(git branch 2>/dev/null | grep '^*') \$ "
 export EDITOR="vim"
