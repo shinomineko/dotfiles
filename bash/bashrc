@@ -13,7 +13,16 @@ alias lll='ls -lha --color'
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 [[ -r ~/.bash_private ]] && . ~/.bash_private
 [[ -r ~/.fzf.bash ]] && . ~/.fzf.bash
-export PS1="\w \$(git branch 2>/dev/null | grep '^*') \$ "
+
+brname() {
+  a=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if [ -n "$a" ]; then
+    echo " * $a"
+  else
+    echo ""
+  fi
+}
+export PS1="\W\$(brname) \$ "
 export EDITOR="vim"
 
 export LC_ALL="en_US.UTF-8"
