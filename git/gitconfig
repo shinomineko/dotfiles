@@ -7,6 +7,7 @@
   ci = commit
   co = checkout
   br = branch
+  df = diff
 
 [includeIf "gitdir:~/src/work/"]
   path = ~/src/work/git/config
