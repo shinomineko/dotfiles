@@ -4,10 +4,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'macguirerintoul/night_owl_light.vim'
 call plug#end()
 
 syntax on
-colorscheme dim
+set termguicolors
+colorscheme night_owl_light
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
