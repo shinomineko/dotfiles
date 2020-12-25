@@ -22,7 +22,7 @@ brname() {
     echo ""
   fi
 }
-export PS1="\W\$(brname) \$ "
+export PS1="\u@\h \W\$(brname) \$ "
 export EDITOR="vim"
 
 export LC_ALL="en_US.UTF-8"
