@@ -1,5 +1,4 @@
 alias exit='echo idiot'
-alias ..='cd ..'
 alias vi='vim'
 alias ls='ls --color'
 alias ll='ls -lh --color'
@@ -31,7 +30,8 @@ __prompt_git() {
   fi
 }
 export PS1="\h \W\$(__prompt_git) \$(__prompt) "
-export EDITOR="vim"
+export EDITOR="vi"
+export VISUAL="vi"
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
