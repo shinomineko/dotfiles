@@ -29,6 +29,7 @@ __prompt_git() {
     echo ""
   fi
 }
+
 export PS1="\h \W\$(__prompt_git) \$(__prompt) "
 export EDITOR="vi"
 export VISUAL="vi"
@@ -47,7 +48,7 @@ shopt -s lithist
 shopt -s checkwinsize
 shopt -s checkhash
 shopt -s no_empty_cmd_completion
-
+shopt -s autocd
 
 # x [FILE] - Extracts the given file
 x() {
