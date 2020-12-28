@@ -14,22 +14,30 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 [[ -r ~/.bash_private ]] && . ~/.bash_private
 [[ -r ~/.fzf.bash ]] && . ~/.fzf.bash
 
-brname() {
-  a=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  if [ -n "$a" ]; then
-    echo " * $a"
+__prompt() {
+  if [ "$(id -u)" == "0" ]; then
+    echo \#
+  else
+    echo \$
+  fi
+}
+
+__prompt_git() {
+  _branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if [ -n "$_branch" ]; then
+    echo " * $_branch"
   else
     echo ""
   fi
 }
-export PS1="\u@\h \W\$(brname) \$ "
+export PS1="\h \W\$(__prompt_git) \$(__prompt) "
 export EDITOR="vim"
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-export HISTCONTROL=ignoreboth:erasedups
-export HISTFILE=~/.bash_history
+export HISTCONTROL="ignoreboth:erasedups"
+export HISTFILE="$HOME/.bash_history"
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 shopt -s histappend
