@@ -9,15 +9,15 @@
   br = branch
   df = diff
 
-[includeIf "gitdir:~/src/work/"]
-  path = ~/src/work/git/config
-
 [color]
   ui = auto
 
 [core]
   excludesfile = ~/dotfiles/git/gitignore
-  editor = vim
+
+[status]
+  short = true
+  branch = true
 
 [pull]
   rebase = false
@@ -28,6 +28,11 @@
 [github]
   user = shinomineko
 
-[url "git@github.com:"]
-  insteadOf = "https://github.com/"
+[url "git@github.com:shinomineko"]
+  insteadOf = "https://github.com/shinomineko/"
 
+[url "git@gitlab.com:shinomineko"]
+  insteadOf = "https://gitlab.com/shinomineko/"
+
+[includeIf "gitdir:~/src/work/"]
+  path = ~/src/work/git/config
