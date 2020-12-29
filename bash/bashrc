@@ -1,11 +1,5 @@
-alias exit='echo idiot'
-alias vi='vim'
-alias ls='ls --color'
-alias ll='ls -lh --color'
-alias lll='ls -lha --color'
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-[[ -r ~/.bash_private ]] && . ~/.bash_private
+[[ -r ~/.bash_local ]] && . ~/.bash_local
 [[ -r ~/.fzf.bash ]] && . ~/.fzf.bash
 
 __prompt() {
@@ -44,6 +38,12 @@ shopt -s checkwinsize
 shopt -s checkhash
 shopt -s no_empty_cmd_completion
 shopt -s autocd
+
+alias ls="command ls --color"
+alias ll="ls -lh"
+alias lll="ls -lha"
+alias exit="echo idiot"
+alias vi="vim"
 
 # x [FILE] - Extracts the given file
 x() {
