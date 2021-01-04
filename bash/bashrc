@@ -58,6 +58,10 @@ alias lll="ls -lha"
 alias exit="echo idiot"
 alias vi="vim"
 
+if command -v podman >/dev/null && ! command -v docker >/dev/null; then
+  alias docker="podman"
+fi
+
 # x [FILE] - Extracts the given file
 x() {
   if [ -f $1 ] ; then
