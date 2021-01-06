@@ -13,14 +13,14 @@
   ui = auto
 
 [core]
-  excludesfile = ~/dotfiles/git/gitignore
+  excludesfile = ~/.dotfiles/git/gitignore
 
 [status]
   short = true
   branch = true
 
 [pull]
-  rebase = false
+  rebase = true
 
 [push]
   default = nothing
