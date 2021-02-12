@@ -5,13 +5,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'haishanh/night-owl.vim'
+Plug 'crusoexia/vim-monokai'
 call plug#end()
 
 syntax on
 set termguicolors
-colorscheme night-owl
-let g:lightline = { 'colorscheme': 'nightowl' }
+colorscheme monokai
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
