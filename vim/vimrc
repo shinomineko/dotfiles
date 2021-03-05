@@ -43,4 +43,3 @@ let g:EditorConfig_disable_rules = ['max_line_length']
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
