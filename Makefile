@@ -5,7 +5,8 @@ sync:
 	ln -sfn $(PWD)/bash/bashrc ~/.bashrc
 	ln -sfn $(PWD)/vim/vimrc ~/.vimrc
 	ln -sfn $(PWD)/git/gitconfig ~/.gitconfig
-	  
+	ln -sfn $(PWD)/.editorconfig ~/.editorconfig
+
 	mkdir -p ~/.config/nvim
 	ln -sfn $(PWD)/nvim/init.vim ~/.config/nvim/init.vim
 
@@ -17,7 +18,8 @@ clean:
 	rm -f ~/.bashrc
 	rm -f ~/.vimrc
 	rm -f ~/.gitconfig
-	  
+	rm -f ~/.editorconfig
+
 	rm -rf ~/.config/nvim
 	rm -rf ~/.config/aria2
 
