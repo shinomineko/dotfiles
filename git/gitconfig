@@ -15,10 +15,6 @@
 [core]
   excludesfile = ~/.dotfiles/git/gitignore
 
-[status]
-  short = true
-  branch = true
-
 [pull]
   rebase = true
 
