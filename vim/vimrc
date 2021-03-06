@@ -1,19 +1,20 @@
 call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'crusoexia/vim-monokai'
 call plug#end()
 
+filetype plugin indent on
 syntax on
 set termguicolors
 colorscheme monokai
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+nnoremap ; :
 
 set encoding=utf-8
 set autoread
@@ -25,7 +26,6 @@ set ignorecase
 set smartcase
 set mouse=a
 
-set laststatus=2
 set noerrorbells
 set number
 set rnu
@@ -34,12 +34,15 @@ set showcmd
 set nobackup
 set fileformats=unix,dos,mac
 set nocursorcolumn
-set nocursorline
-set wrap
-set linebreak
-set formatoptions-=t
-let g:EditorConfig_disable_rules = ['max_line_length']
+set cursorline
+set nowrap
 
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+set laststatus=2
+set statusline=%f%m%r%h%w
+set statusline+=\ [%{&ff}]
+set statusline+=%=
+set statusline+=[%l/%L][%04v]
