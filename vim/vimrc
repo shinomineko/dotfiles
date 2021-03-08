@@ -45,4 +45,4 @@ set laststatus=2
 set statusline=%f%m%r%h%w
 set statusline+=\ [%{&ff}]
 set statusline+=%=
-set statusline+=[%l/%L][%04v]
+set statusline+=[%l/%L:%04v]
