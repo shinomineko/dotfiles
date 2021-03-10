@@ -57,6 +57,7 @@ alias ll="ls -lh"
 alias lll="ls -lha"
 alias exit="echo idiot"
 alias vi="vim"
+alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 if command -v nvim >/dev/null; then
   alias vim="nvim"
