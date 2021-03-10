@@ -25,6 +25,9 @@ dump.rdb
 .vagrant/
 cache/
 out/
+.vscode/
 
 # User files
 stdout
+*logs*
+*.log
