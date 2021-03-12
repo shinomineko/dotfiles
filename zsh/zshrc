@@ -1,0 +1,86 @@
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+[[ -r $HOME/.zsh_local ]] && source $HOME/.zsh_local
+[[ -r $HOME/.fzf.zsh  ]] && source $HOME/.fzf.zsh
+
+alias exit="echo idiot"
+
+alias ls="command ls --color"
+alias ll="ls -lh"
+alias lll="ls -lha"
+
+alias vi="vim"
+alias k="kubectl"
+
+alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias bscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
+if command -v nvim >/dev/null; then
+    alias vim="nvim"
+fi
+
+if command -v podman >/dev/null && ! command -v docker >/dev/null; then
+    alias docker="podman"
+fi
+
+export EDITOR="vi"
+export VISUAL="vi"
+
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
+
+autoload -U colors && colors
+setopt promptsubst
+
+__prompt() {
+  if [ "$(id -u)" -eq "0" ]; then
+    echo \#
+  else
+    echo \$
+  fi
+}
+
+__prompt_hostname() {
+  typeset short_hostname=$(hostname)
+  printf "%s" "${short_hostname%%.*}"
+}
+
+__prompt_git() {
+  _branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if [ -n "$_branch" ]; then
+    echo " * $_branch"
+  else
+    echo ""
+  fi
+}
+
+__prompt_pwd() {
+    pwd | sed "
+s|^$HOME|~|;                                    # $HOME -> ~
+s|\([^[:punct:]]\)[^/]*/|\1/|g;                 # foo/bar/baz -> f/b/baz
+s|^\(././\)././././.*/\(./[^/]*\)$|\1.../\2|g;  # 1/2/3/4/5/6/7/8/9/10 -> 1/.../9/10
+"
+}
+
+export PROMPT='$(__prompt_hostname) $(__prompt_pwd)$(__prompt_git) $(__prompt) '
+
+autoload -Uz compinit
+compinit
+
+autoload bashcompinit
+bashcompinit
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
