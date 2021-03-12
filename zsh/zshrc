@@ -8,6 +8,8 @@ alias ls="command ls --color"
 alias ll="ls -lh"
 alias lll="ls -lha"
 
+alias tmp="cd $(mktemp -d)"
+
 alias vi="vim"
 alias k="kubectl"
 
