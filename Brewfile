@@ -1,7 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 
-brew "bash-completion@2"
 brew "curl"
 brew "wget"
 brew "git"

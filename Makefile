@@ -1,8 +1,7 @@
 all: sync
 
 sync:
-	ln -sfn $(PWD)/bash/bash_profile ~/.bash_profile
-	ln -sfn $(PWD)/bash/bashrc ~/.bashrc
+	ln -sfn $(PWD)/zsh/zshrc ~/.zshrc
 	ln -sfn $(PWD)/vim/vimrc ~/.vimrc
 	ln -sfn $(PWD)/git/gitconfig ~/.gitconfig
 	ln -sfn $(PWD)/.editorconfig ~/.editorconfig
@@ -14,8 +13,7 @@ sync:
 	ln -sfn $(PWD)/aria2/aria2.conf ~/.config/aria2/aria2.conf
 
 clean:
-	rm -f ~/.bash_profile
-	rm -f ~/.bashrc
+	rm -f ~/.zshrc
 	rm -f ~/.vimrc
 	rm -f ~/.gitconfig
 	rm -f ~/.editorconfig
