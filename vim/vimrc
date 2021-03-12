@@ -3,13 +3,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'crusoexia/vim-monokai'
 call plug#end()
 
 filetype plugin indent on
 syntax on
-set background=light
-colorscheme PaperColor
+set termguicolors
+colorscheme monokai
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
