@@ -34,7 +34,7 @@ set showcmd
 set nobackup
 set fileformats=unix,dos,mac
 set nocursorcolumn
-set cursorline
+set nocursorline
 set nowrap
 
 set tabstop=2
