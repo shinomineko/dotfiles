@@ -32,8 +32,8 @@ fi
 
 ## EXPORT
 
-export EDITOR="vi"
-export VISUAL="vi"
+export EDITOR="vim"
+export VISUAL="vim"
 
 export LS_COLORS="di=32:ln=1;31:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
 export LSCOLORS=cxBxhxDxfxhxhxhxhxcxcx
@@ -104,6 +104,10 @@ compinit
 
 autoload bashcompinit
 bashcompinit
+
+# change word-selection style to be like bash. this makes alt+backspace delete "bar" in "foo/bar" instead of the entire thing.
+autoload -U select-word-style
+select-word-style bash
 
 zstyle ':completion:*' completer _expand_alias _complete _ignored
 
