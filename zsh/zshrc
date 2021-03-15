@@ -1,6 +1,11 @@
+## INIT
+
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 [[ -r $HOME/.zsh_local ]] && source $HOME/.zsh_local
 [[ -r $HOME/.fzf.zsh  ]] && source $HOME/.fzf.zsh
+
+
+## ALIASES
 
 alias exit="echo idiot"
 
@@ -24,16 +29,23 @@ if command -v podman >/dev/null && ! command -v docker >/dev/null; then
     alias docker="podman"
 fi
 
+
+## EXPORT
+
 export EDITOR="vi"
 export VISUAL="vi"
 
 export LS_COLORS="di=32:ln=1;31:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32"
 export LSCOLORS=cxBxhxDxfxhxhxhxhxcxcx
+export CLICOLOR=1
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-HISTFILE=$HOME/.zsh_history
+
+## HISTORY
+
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000000
 SAVEHIST=1000000
 
@@ -45,6 +57,9 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 setopt share_history
+
+
+## PROMPT
 
 autoload -U colors && colors
 setopt promptsubst
@@ -81,11 +96,17 @@ s|^\(././\)././././.*/\(./[^/]*\)$|\1.../\2|g;  # 1/2/3/4/5/6/7/8/9/10 -> 1/.../
 
 export PROMPT='$(__prompt_hostname) $(__prompt_pwd)$(__prompt_git) $(__prompt) '
 
+
+## COMPLETION
+
 autoload -Uz compinit
 compinit
 
 autoload bashcompinit
 bashcompinit
+
+
+## PLUGINS
 
 [[ -r /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -r /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
