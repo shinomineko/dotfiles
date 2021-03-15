@@ -15,6 +15,7 @@ let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 nnoremap ; :
+nnoremap Q <nop>
 
 set encoding=utf-8
 set autoread
