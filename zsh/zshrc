@@ -105,6 +105,8 @@ compinit
 autoload bashcompinit
 bashcompinit
 
+zstyle ':completion:*' completer _expand_alias _complete _ignored
+
 
 ## PLUGINS
 
