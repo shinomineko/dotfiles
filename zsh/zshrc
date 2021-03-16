@@ -1,6 +1,37 @@
 ## INIT
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+PATH=
+
+prependpath() {
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+
+    * )
+      PATH="${1:+$1:}$PATH"
+      ;;
+  esac
+
+  PATH=${PATH%%:}
+}
+
+prependpath "/sbin"
+prependpath "/usr/sbin"
+prependpath "/bin"
+prependpath "/usr/bin"
+
+prependpath "/usr/local/sbin"
+prependpath "/usr/local/bin"
+
+prependpath "/opt/bin"
+prependpath "/opt/local/bin"
+
+prependpath "$HOME/.local/bin"
+
+unset prependpath
+
+export PATH
+
 [[ -r $HOME/.zsh_local ]] && source $HOME/.zsh_local
 [[ -r $HOME/.fzf.zsh  ]] && source $HOME/.fzf.zsh
 
