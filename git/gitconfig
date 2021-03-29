@@ -21,6 +21,9 @@
 [push]
   default = nothing
 
+[init]
+  defaultBranch = main
+
 [github]
   user = shinomineko
 
