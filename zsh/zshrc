@@ -33,7 +33,6 @@ unset prependpath
 export PATH
 
 [[ -r $HOME/.zsh_local ]] && source $HOME/.zsh_local
-[[ -r $HOME/.fzf.zsh  ]] && source $HOME/.fzf.zsh
 
 
 ## ALIASES
@@ -148,3 +147,5 @@ zstyle ':completion:*' completer _expand_alias _complete _ignored
 [[ -r /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -r /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+
+[[ -r $HOME/.fzf.zsh  ]] && source $HOME/.fzf.zsh
