@@ -45,3 +45,4 @@ set statusline=%f%m%r%h%w
 set statusline+=\ [%{&ff}]
 set statusline+=%=
 set statusline+=[%l/%L:%04v]
+hi statusline ctermfg=233 ctermbg=255
