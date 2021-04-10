@@ -3,11 +3,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'pgdouyon/vim-yin-yang'
 call plug#end()
 
 filetype plugin indent on
 syntax on
-colorscheme dim
+colorscheme yang
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -45,4 +46,3 @@ set statusline=%f%m%r%h%w
 set statusline+=\ [%{&ff}]
 set statusline+=%=
 set statusline+=[%l/%L:%04v]
-hi statusline ctermfg=233 ctermbg=255
