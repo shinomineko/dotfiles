@@ -146,3 +146,9 @@ zstyle ':completion:*' completer _expand_alias _complete _ignored
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
 
 [[ -r $HOME/.fzf.zsh  ]] && source $HOME/.fzf.zsh
+
+
+## GPG
+
+GPG_TTY=$(tty)
+export GPG_TTY
