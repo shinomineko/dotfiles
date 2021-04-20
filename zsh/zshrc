@@ -150,7 +150,7 @@ zstyle ':completion:*' completer _expand_alias _complete _ignored
 
 ## GPG
 
-if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+if command -v gpg-connect-agent >/dev/null; then
   gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
