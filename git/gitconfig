@@ -8,6 +8,7 @@
   co = checkout
   br = branch
   df = diff
+  lg = log --oneline -n 20 --graph --abbrev-commit
 
 [color]
   ui = auto
