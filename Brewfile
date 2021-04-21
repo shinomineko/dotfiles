@@ -15,5 +15,4 @@ brew "unzip"
 
 brew "kubernetes-cli"
 brew "kind"
-brew "istioctl"
 brew "stern"
