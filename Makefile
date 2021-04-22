@@ -12,6 +12,10 @@ sync:
 	mkdir -p ~/.config/aria2
 	ln -sfn $(PWD)/aria2/aria2.conf ~/.config/aria2/aria2.conf
 
+	mkdir -p ~/.gnupg
+	ln -sfn $(PWD)/gnupg/gpg.conf ~/.gnupg/gpg.conf
+	ln -sfn $(PWD)/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+
 clean:
 	rm -f ~/.zshrc
 	rm -f ~/.vimrc
@@ -20,5 +24,7 @@ clean:
 
 	rm -rf ~/.config/nvim
 	rm -rf ~/.config/aria2
+
+	rm -rf ~/.gnupg/gpg*.conf
 
 .PHONY: all clean sync build run kill
