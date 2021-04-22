@@ -14,7 +14,7 @@
   ui = auto
 
 [core]
-  excludesfile = ~/.dotfiles/git/gitignore
+  excludesfile = ~/.gitignore
 
 [commit]
   gpgsign = true

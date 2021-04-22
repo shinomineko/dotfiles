@@ -1,0 +1,9 @@
+#!/bin/bash
+
+trivy() {
+  docker run --rm \
+    --name trivy \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v "${HOME}/.cache:/root/.cache" \
+    aquasec/trivy "$@"
+}

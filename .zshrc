@@ -32,8 +32,6 @@ unset prependpath
 
 export PATH
 
-[[ -r $HOME/.zsh_local ]] && source $HOME/.zsh_local
-
 
 ## ALIASES
 
@@ -156,3 +154,12 @@ fi
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+
+# STUFF
+
+for FILE in $HOME/.{extra,dockerfunc}; do
+  [[ -r "$FILE" ]] && source "$FILE"
+done
+unset FILE
+
