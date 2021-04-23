@@ -31,6 +31,7 @@ clean:
 	rm -f $(HOME)/.vimrc
 	rm -f $(HOME)/.gitconfig
 	rm -f $(HOME)/.editorconfig
+	rm -f $(HOME)/.functions
 	rm -f $(HOME)/.dockerfunc
 
 	rm -rf $(HOME)/.config/nvim

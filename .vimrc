@@ -12,6 +12,7 @@ colorscheme yang
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_show_hidden = 1
 
 nnoremap ; :
 nnoremap Q <nop>
