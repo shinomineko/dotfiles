@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 ## INIT
 
 PATH=
@@ -41,19 +43,17 @@ alias ls="command ls --color"
 alias ll="ls -lh"
 alias lll="ls -lha"
 
-alias tmp="cd $(mktemp -d)"
-
 alias vi="vim"
 alias k="kubectl"
 
 alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias bscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
-if command -v nvim >/dev/null; then
+if hash nvim 2>/dev/null; then
     alias vim="nvim"
 fi
 
-if command -v podman >/dev/null && ! command -v docker >/dev/null; then
+if hash podman 2>/dev/null && ! hash docker 2>/dev/null; then
     alias docker="podman"
 fi
 
@@ -143,12 +143,12 @@ zstyle ':completion:*' completer _expand_alias _complete _ignored
 # [[ -r /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
 
-[[ -r $HOME/.fzf.zsh  ]] && source $HOME/.fzf.zsh
+[[ -r "$HOME/.fzf.zsh"  ]] && source "$HOME/.fzf.zsh"
 
 
 ## GPG
 
-if command -v gpg-connect-agent >/dev/null; then
+if hash gpg-connect-agent 2>/dev/null; then
   gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
@@ -158,8 +158,8 @@ export GPG_TTY
 
 # STUFF
 
-for FILE in $HOME/.{extra,dockerfunc}; do
-  [[ -r "$FILE" ]] && source "$FILE"
+for file in $HOME/.{extra,functions,dockerfunc}; do
+  [[ -r "$file" ]] && source "$file"
 done
-unset FILE
+unset file
 
