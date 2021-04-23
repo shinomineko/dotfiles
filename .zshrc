@@ -50,11 +50,11 @@ alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias bscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 if hash nvim 2>/dev/null; then
-    alias vim="nvim"
+  alias vim="nvim"
 fi
 
 if hash podman 2>/dev/null && ! hash docker 2>/dev/null; then
-    alias docker="podman"
+  alias docker="podman"
 fi
 
 
