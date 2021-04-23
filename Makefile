@@ -30,6 +30,7 @@ clean:
 	rm -f $(HOME)/.zshrc
 	rm -f $(HOME)/.vimrc
 	rm -f $(HOME)/.gitconfig
+	rm -f $(HOME)/.gitignore
 	rm -f $(HOME)/.editorconfig
 	rm -f $(HOME)/.functions
 	rm -f $(HOME)/.dockerfunc

@@ -156,7 +156,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 
-# STUFF
+## STUFF
 
 for file in $HOME/.{extra,functions,dockerfunc}; do
   [[ -r "$file" ]] && source "$file"
