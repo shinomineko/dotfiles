@@ -14,10 +14,10 @@
   ui = auto
 
 [core]
-  excludesfile = ~/.gitignore
+  excludesFile = ~/.gitignore
 
 [commit]
-  gpgsign = true
+  gpgSign = true
 
 [pull]
   rebase = true
