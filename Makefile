@@ -1,35 +1,40 @@
+SHELL := bash
+
 .PHONY: all
 all: sync
 
 .PHONY: sync
 sync:
-	ln -sfn $(PWD)/.zshrc ~/.zshrc
-	ln -sfn $(PWD)/.vimrc ~/.vimrc
-	ln -sfn $(PWD)/.gitconfig ~/.gitconfig
-	ln -sfn $(PWD)/.gitignore ~/.gitignore
-	ln -sfn $(PWD)/.editorconfig ~/.editorconfig
-	ln -sfn $(PWD)/.dockerfunc ~/.dockerfunc
+	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".github" -not -name ".config" -not -name ".*.swp" -not -name ".gnupg" -type f); do \
+		f=$$(basename $$file); \
+		ln -sfn $$file $(HOME)/$$f; \
+	done; \
 
-	mkdir -p ~/.config/nvim
-	ln -sfn $(PWD)/.config/nvim/init.vim ~/.config/nvim/init.vim
+	ln -sfn $(CURDIR)/gitignore $(HOME)/.gitignore
 
-	mkdir -p ~/.config/aria2
-	ln -sfn $(PWD)/.config/aria2/aria2.conf ~/.config/aria2/aria2.conf
+	mkdir -p $(HOME)/.config/nvim
+	ln -sfn $(CURDIR)/.config/nvim/init.vim $(HOME)/.config/nvim/init.vim
 
-	mkdir -p ~/.gnupg
-	ln -sfn $(PWD)/.gnupg/gpg.conf ~/.gnupg/gpg.conf
-	ln -sfn $(PWD)/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+	mkdir -p $(HOME)/.config/aria2
+	ln -sfn $(CURDIR)/.config/aria2/aria2.conf $(HOME)/.config/aria2/aria2.conf
+
+	gpg --list-keys || true;
+	mkdir -p $(HOME)/.gnupg
+	for file in $(shell find $(CURDIR)/.gnupg -type f); do \
+		f=$$(basename $$file); \
+		ln -sfn $$file $(HOME)/.gnupg/$$f; \
+	done; \
 
 .PHONY: clean
 clean:
-	rm -f ~/.zshrc
-	rm -f ~/.vimrc
-	rm -f ~/.gitconfig
-	rm -f ~/.editorconfig
-	rm -f ~/.dockerfunc
+	rm -f $(HOME)/.zshrc
+	rm -f $(HOME)/.vimrc
+	rm -f $(HOME)/.gitconfig
+	rm -f $(HOME)/.editorconfig
+	rm -f $(HOME)/.dockerfunc
 
-	rm -rf ~/.config/nvim
-	rm -rf ~/.config/aria2
+	rm -rf $(HOME)/.config/nvim
+	rm -rf $(HOME)/.config/aria2
 
-	rm -rf ~/.gnupg/gpg*.conf
+	rm -rf $(HOME)/.gnupg/gpg*.conf
 
