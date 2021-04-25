@@ -9,14 +9,6 @@ rm_stopped() {
   fi
 }
 
-trivy() {
-  docker run --rm \
-    --name trivy \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v "${HOME}/.cache:/root/.cache" \
-    aquasec/trivy "$@"
-}
-
 torproxy() {
   rm_stopped torproxy
   docker run -d \
@@ -25,4 +17,25 @@ torproxy() {
     -v /etc/localtime:/etc/localtime:ro \
     -p 9050:9050 \
     shinomineko/torproxy
+}
+
+transmission() {
+  rm_stopped transmission
+  docker run -d \
+    --name transmission \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v "${DOWNLOADDIR:-$HOME/Downloads}:/transmission/download" \
+    -v "${HOME}/.transmission:/transmission/config" \
+    -p 9091:9091 \
+    -p 51413:51413 \
+    -p 51413:51413/udp \
+    shinomineko/transmission
+}
+
+trivy() {
+  docker run --rm \
+    --name trivy \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v "${HOME}/.cache:/root/.cache" \
+    aquasec/trivy "$@"
 }
