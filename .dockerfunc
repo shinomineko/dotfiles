@@ -1,5 +1,16 @@
 #!/bin/zsh
 
+relies_on() {
+  for container in "$@"; do
+    local state
+    state=$(docker inspect -f "{{.State.Running}}" "$container" 2>/dev/null)
+    if [[ "$state" == "false" || "$state" == "" ]]; then
+      echo "$container is not running, starting it"
+      $container
+    fi
+  done
+}
+
 rm_stopped() {
   local name="$1"
   local state
