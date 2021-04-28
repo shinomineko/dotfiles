@@ -20,6 +20,14 @@ rm_stopped() {
   fi
 }
 
+aws() {
+  docker run -it --rm \
+    --name aws \
+    -v "${HOME}/.aws:/root/.aws:ro" \
+    --log-driver none \
+    amazon/aws-cli "$@"
+}
+
 torproxy() {
   rm_stopped torproxy
   docker run -d \
