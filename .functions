@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # make a dir and enter it
 mkd() {
