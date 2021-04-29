@@ -1,7 +1,11 @@
-#!/bin/zsh
+#!/bin/bash
 
 ## INIT
 
+shell="$(command -v bash)"
+export SHELL="$shell"
+
+# shellcheck disable=SC2123
 PATH=
 
 prependpath() {
@@ -34,17 +38,36 @@ unset prependpath
 
 export PATH
 
+shopt -s checkwinsize
+shopt -s nocaseglob
+shopt -s cdspell
+shopt -s autocd
+shopt -s globstar
+
 
 ## ALIASES
 
-alias exit="echo idiot"
+if ls --color > /dev/null 2>&1; then
+  colorflag="--color"
+else
+  colorflag="-G"
+fi
 
-alias ls="command ls --color"
-alias ll="ls -lh"
-alias lll="ls -lha"
+# shellcheck disable=SC2139
+alias ll="ls -lhF $colorflag"
 
-alias vi="vim"
-alias k="kubectl"
+# shellcheck disable=SC2139
+alias la="ls -lhaF $colorflag"
+
+# shellcheck disable=SC2139
+alias lsd="ls -lhF $colorflag | grep --color=never '^d'"
+
+# shellcheck disable=SC2139
+alias ls="command ls $colorflag"
+
+alias grep="grep --color=auto"
+
+alias untar="tar xvf"
 
 alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias bscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
@@ -73,24 +96,16 @@ export LANG="en_US.UTF-8"
 
 ## HISTORY
 
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=1000000
-SAVEHIST=1000000
+export HISTFILE="$HOME/.bash_history"
+export HISTSIZE=5000000
+export HISTFILESIZE="$HISTSIZE"
+export HISTCONTROL=ignoredups
+export HISTIGNORE=" *:ls:cd:cd -:pwd:exit:date:* --help:* -h"
 
-setopt append_history
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt hist_verify
-setopt inc_append_history
-setopt share_history
+shopt -s histappend
 
 
 ## PROMPT
-
-autoload -Uz colors && colors
-setopt promptsubst
 
 __prompt() {
   if [ "$(id -u)" -eq "0" ]; then
@@ -122,28 +137,30 @@ s|^\(././\)././././.*/\(./[^/]*\)$|\1.../\2|g;  # 1/2/3/4/5/6/7/8/9/10 -> 1/.../
 "
 }
 
-export PROMPT='$(__prompt_hostname) $(__prompt_pwd)$(__prompt_git) $(__prompt) '
+export PS1='$(__prompt_hostname) $(__prompt_pwd)$(__prompt_git) $(__prompt) '
 
 
 ## COMPLETION
 
-autoload -Uz compinit && compinit
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    # shellcheck source=/dev/null
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    # shellcheck source=/dev/null
+    . /etc/bash_completion
+  elif [ -f /usr/local/etc/bash_completion ]; then
+    # shellcheck source=/dev/null
+    . /usr/local/etc/bash_completion
+  fi
+fi
 
-autoload -Uz bashcompinit && bashcompinit
-
-# change word-selection style to be like bash. this makes alt+backspace delete "bar" in "foo/bar" instead of the entire thing.
-autoload -Uz select-word-style && select-word-style bash
-
-zstyle ':completion:*' completer _expand_alias _complete _ignored
-
-
-## PLUGINS
-
-[[ -r /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# [[ -r /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
-
-[[ -r "$HOME/.fzf.zsh"  ]] && source "$HOME/.fzf.zsh"
+if [[ -d /etc/bash_completion.d/ ]]; then
+  for file in /etc/bash_completion.d/* ; do
+    # shellcheck source=/dev/null
+    source "$file"
+  done
+fi
 
 
 ## GPG
@@ -158,8 +175,11 @@ export GPG_TTY
 
 ## STUFF
 
-for file in $HOME/.{extra,functions,dockerfunc}; do
-  [[ -r "$file" ]] && source "$file"
+for file in $HOME/.{extra,functions,dockerfunc,fzf.bash}; do
+  if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+    # shellcheck source=/dev/null
+    source "$file"
+  fi
 done
 unset file
 
