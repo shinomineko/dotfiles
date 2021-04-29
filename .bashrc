@@ -137,7 +137,8 @@ s|^\(././\)././././.*/\(./[^/]*\)$|\1.../\2|g;  # 1/2/3/4/5/6/7/8/9/10 -> 1/.../
 "
 }
 
-export PS1='$(__prompt_hostname) $(__prompt_pwd)$(__prompt_git) $(__prompt) '
+PS1="\$(__prompt_hostname) \$(__prompt_pwd)\$(__prompt_git) \$(__prompt) "
+export PS1
 
 
 ## COMPLETION
