@@ -27,7 +27,8 @@ sync:
 
 .PHONY: clean
 clean:
-	rm -f $(HOME)/.zshrc
+	rm -f $(HOME)/.bash_profile
+	rm -f $(HOME)/.bashrc
 	rm -f $(HOME)/.vimrc
 	rm -f $(HOME)/.gitconfig
 	rm -f $(HOME)/.gitignore
