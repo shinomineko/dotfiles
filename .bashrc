@@ -5,38 +5,7 @@
 shell="$(command -v bash)"
 export SHELL="$shell"
 
-# shellcheck disable=SC2123
-PATH=
-
-prependpath() {
-  case ":$PATH:" in
-    *:"$1":*)
-      ;;
-
-    * )
-      PATH="${1:+$1:}$PATH"
-      ;;
-  esac
-
-  PATH=${PATH%%:}
-}
-
-prependpath "/sbin"
-prependpath "/usr/sbin"
-prependpath "/bin"
-prependpath "/usr/bin"
-
-prependpath "/usr/local/sbin"
-prependpath "/usr/local/bin"
-
-prependpath "/opt/bin"
-prependpath "/opt/local/bin"
-
-prependpath "$HOME/.local/bin"
-
-unset prependpath
-
-export PATH
+export PATH="${HOME}/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 shopt -s checkwinsize
 shopt -s nocaseglob
@@ -176,7 +145,7 @@ export GPG_TTY
 
 ## STUFF
 
-for file in $HOME/.{extra,functions,dockerfunc,fzf.bash}; do
+for file in $HOME/.{functions,dockerfunc,extra,fzf.bash}; do
   if [[ -r "$file" ]] && [[ -f "$file" ]]; then
     # shellcheck source=/dev/null
     source "$file"
