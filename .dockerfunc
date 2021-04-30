@@ -28,6 +28,13 @@ aws() {
     amazon/aws-cli "$@"
 }
 
+nmap() {
+  docker run -it --rm \
+    --name nmap \
+    --net host \
+    shinomineko/nmap "$@"
+}
+
 torproxy() {
   rm_stopped torproxy
   docker run -d \
