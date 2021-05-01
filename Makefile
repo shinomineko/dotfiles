@@ -40,4 +40,3 @@ clean:
 	rm -rf $(HOME)/.config/aria2
 
 	rm -rf $(HOME)/.gnupg/gpg*.conf
-

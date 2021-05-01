@@ -17,9 +17,9 @@ shopt -s globstar
 ## ALIASES
 
 if ls --color > /dev/null 2>&1; then
-  colorflag="--color"
+	colorflag="--color"
 else
-  colorflag="-G"
+	colorflag="-G"
 fi
 
 # shellcheck disable=SC2139
@@ -42,11 +42,11 @@ alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias bscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 if hash nvim 2>/dev/null; then
-  alias vim="nvim"
+	alias vim="nvim"
 fi
 
 if hash podman 2>/dev/null && ! hash docker 2>/dev/null; then
-  alias docker="podman"
+	alias docker="podman"
 fi
 
 
@@ -77,29 +77,29 @@ shopt -s histappend
 ## PROMPT
 
 __prompt() {
-  if [ "$(id -u)" -eq "0" ]; then
-    echo \#
-  else
-    echo \$
-  fi
+	if [ "$(id -u)" -eq "0" ]; then
+		echo \#
+	else
+		echo \$
+	fi
 }
 
 __prompt_hostname() {
-  typeset short_hostname=$(hostname)
-  printf "%s" "${short_hostname%%.*}"
+	typeset short_hostname=$(hostname)
+	printf "%s" "${short_hostname%%.*}"
 }
 
 __prompt_git() {
-  _branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-  if [ -n "$_branch" ]; then
-    echo " * $_branch"
-  else
-    echo ""
-  fi
+	_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+	if [ -n "$_branch" ]; then
+		echo " * $_branch"
+	else
+		echo ""
+	fi
 }
 
 __prompt_pwd() {
-    pwd | sed "
+		pwd | sed "
 s|^$HOME|~|;                                    # $HOME -> ~
 s|\([^[:punct:]]\)[^/]*/|\1/|g;                 # foo/bar/baz -> f/b/baz
 s|^\(././\)././././.*/\(./[^/]*\)$|\1.../\2|g;  # 1/2/3/4/5/6/7/8/9/10 -> 1/.../9/10
@@ -113,30 +113,30 @@ export PS1
 ## COMPLETION
 
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    # shellcheck source=/dev/null
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    # shellcheck source=/dev/null
-    . /etc/bash_completion
-  elif [ -f /usr/local/etc/bash_completion ]; then
-    # shellcheck source=/dev/null
-    . /usr/local/etc/bash_completion
-  fi
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		# shellcheck source=/dev/null
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		# shellcheck source=/dev/null
+		. /etc/bash_completion
+	elif [ -f /usr/local/etc/bash_completion ]; then
+		# shellcheck source=/dev/null
+		. /usr/local/etc/bash_completion
+	fi
 fi
 
 if [[ -d /etc/bash_completion.d/ ]]; then
-  for file in /etc/bash_completion.d/* ; do
-    # shellcheck source=/dev/null
-    source "$file"
-  done
+	for file in /etc/bash_completion.d/* ; do
+		# shellcheck source=/dev/null
+		source "$file"
+	done
 fi
 
 
 ## GPG
 
 if hash gpg-connect-agent 2>/dev/null; then
-  gpg-connect-agent updatestartuptty /bye >/dev/null
+	gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
 GPG_TTY=$(tty)
@@ -146,10 +146,9 @@ export GPG_TTY
 ## STUFF
 
 for file in $HOME/.{functions,dockerfunc,extra,fzf.bash}; do
-  if [[ -r "$file" ]] && [[ -f "$file" ]]; then
-    # shellcheck source=/dev/null
-    source "$file"
-  fi
+	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+		# shellcheck source=/dev/null
+		source "$file"
+	fi
 done
 unset file
-
