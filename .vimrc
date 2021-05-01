@@ -17,33 +17,50 @@ let g:ctrlp_show_hidden = 1
 nnoremap ; :
 nnoremap Q <nop>
 
+set noerrorbells
 set encoding=utf-8
 set autoread
-set autoindent
 set backspace=indent,eol,start
+set showcmd
+set nobackup
+
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-set mouse=a
 
-set noerrorbells
 set number
 set rnu
 set ruler
-set showcmd
-set nobackup
 set fileformats=unix,dos,mac
+set showmatch
+
 set nocursorcolumn
 set nocursorline
-set nowrap
 
+set wrap
+set textwidth=100
+set formatoptions=qrn1
+
+set conceallevel=0
+
+set autoindent
+set smartindent
+set smarttab
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set noexpandtab
+
+set notimeout
+set ttimeout
+set ttimeoutlen=10
 
 set laststatus=2
 set statusline=%f%m%r%h%w
 set statusline+=\ [%{&ff}]
 set statusline+=%=
 set statusline+=[%l/%L:%04v]
+
+if has('mouse')
+  set mouse=a
+endif
