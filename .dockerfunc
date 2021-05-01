@@ -20,6 +20,14 @@ rm_stopped() {
   fi
 }
 
+aria2() {
+  docker run -it --rm \
+    --name aria2 \
+    -v "${DOWNLOADDIR:-$HOME/Downloads}:/aria2/download" \
+    -v "${HOME}/.config/aria2/aria2.conf:/root/.config/aria2/aria2.conf" \
+    shinomineko/aria2 "$@"
+}
+
 aws() {
   docker run -it --rm \
     --name aws \
