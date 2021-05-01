@@ -1,41 +1,41 @@
 [user]
-  name = ***REMOVED***
-  email = sc@shinomin.me
+	name = ***REMOVED***
+	email = sc@shinomin.me
 
 [alias]
-  st = status
-  ci = commit
-  co = checkout
-  br = branch
-  df = diff
-  lg = log --oneline -n 20 --graph --abbrev-commit
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	df = diff
+	lg = log --oneline -n 20 --graph --abbrev-commit
 
 [color]
-  ui = auto
+	ui = auto
 
 [core]
-  excludesFile = ~/.gitignore
+	excludesFile = ~/.gitignore
 
 [commit]
-  gpgSign = true
+	gpgSign = true
 
 [pull]
-  rebase = true
+	rebase = true
 
 [push]
-  default = nothing
+	default = nothing
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [github]
-  user = shinomineko
+	user = shinomineko
 
 [url "git@github.com:shinomineko/"]
-  insteadOf = "https://github.com/shinomineko/"
+	insteadOf = "https://github.com/shinomineko/"
 
 [url "git@gitlab.com:shinomineko/"]
-  insteadOf = "https://gitlab.com/shinomineko/"
+	insteadOf = "https://gitlab.com/shinomineko/"
 
 [includeIf "gitdir:~/src/work/"]
-  path = ~/src/work/git/config
+	path = ~/src/work/git/config

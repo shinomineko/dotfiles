@@ -2,22 +2,22 @@
 
 # make a dir and enter it
 mkd() {
-  mkdir -p "$@"
-  cd "$@" || exit
+	mkdir -p "$@"
+	cd "$@" || exit
 }
 
 # make a temp dir and enter it
 tmpd() {
-  local dir
-  if [ "$#" -eq 0 ]; then
-    dir=$(mktemp -d)
-  else
-    dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
-  fi
-  cd "$dir" || exit
+	local dir
+	if [ "$#" -eq 0 ]; then
+		dir=$(mktemp -d)
+	else
+		dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+	fi
+	cd "$dir" || exit
 }
 
 # tree, ignore `.git` and pipe to `less`
 tre() {
-  tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
+	tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
 }

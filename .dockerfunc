@@ -1,75 +1,75 @@
 #!/bin/bash
 
 relies_on() {
-  for container in "$@"; do
-    local state
-    state=$(docker inspect -f "{{.State.Running}}" "$container" 2>/dev/null)
-    if [[ "$state" == "false" || "$state" == "" ]]; then
-      echo "$container is not running, starting it"
-      $container
-    fi
-  done
+	for container in "$@"; do
+		local state
+		state=$(docker inspect -f "{{.State.Running}}" "$container" 2>/dev/null)
+		if [[ "$state" == "false" || "$state" == "" ]]; then
+			echo "$container is not running, starting it"
+			$container
+		fi
+	done
 }
 
 rm_stopped() {
-  local name="$1"
-  local state
-  state=$(docker inspect -f "{{.State.Running}}" "$name" 2>/dev/null)
-  if [[ "$state" == "false" ]]; then
-    docker rm "$name"
-  fi
+	local name="$1"
+	local state
+	state=$(docker inspect -f "{{.State.Running}}" "$name" 2>/dev/null)
+	if [[ "$state" == "false" ]]; then
+		docker rm "$name"
+	fi
 }
 
 aria2() {
-  docker run -it --rm \
-    --name aria2 \
-    -v "${DOWNLOADDIR:-$HOME/Downloads}:/aria2/download" \
-    -v "${HOME}/.config/aria2/aria2.conf:/root/.config/aria2/aria2.conf" \
-    shinomineko/aria2 "$@"
+	docker run -it --rm \
+		--name aria2 \
+		-v "${DOWNLOADDIR:-$HOME/Downloads}:/aria2/download" \
+		-v "${HOME}/.config/aria2/aria2.conf:/root/.config/aria2/aria2.conf" \
+		shinomineko/aria2 "$@"
 }
 
 aws() {
-  docker run -it --rm \
-    --name aws \
-    -v "${HOME}/.aws:/root/.aws:ro" \
-    --log-driver none \
-    amazon/aws-cli "$@"
+	docker run -it --rm \
+		--name aws \
+		-v "${HOME}/.aws:/root/.aws:ro" \
+		--log-driver none \
+		amazon/aws-cli "$@"
 }
 
 nmap() {
-  docker run -it --rm \
-    --name nmap \
-    --net host \
-    shinomineko/nmap "$@"
+	docker run -it --rm \
+		--name nmap \
+		--net host \
+		shinomineko/nmap "$@"
 }
 
 torproxy() {
-  rm_stopped torproxy
-  docker run -d \
-    --restart always \
-    --name torproxy \
-    -v /etc/localtime:/etc/localtime:ro \
-    -p 9050:9050 \
-    shinomineko/torproxy
+	rm_stopped torproxy
+	docker run -d \
+		--restart always \
+		--name torproxy \
+		-v /etc/localtime:/etc/localtime:ro \
+		-p 9050:9050 \
+		shinomineko/torproxy
 }
 
 transmission() {
-  rm_stopped transmission
-  docker run -d \
-    --name transmission \
-    -v /etc/localtime:/etc/localtime:ro \
-    -v "${DOWNLOADDIR:-$HOME/Downloads}:/transmission/download" \
-    -v "${HOME}/.transmission:/transmission/config" \
-    -p 9091:9091 \
-    -p 51413:51413 \
-    -p 51413:51413/udp \
-    shinomineko/transmission
+	rm_stopped transmission
+	docker run -d \
+		--name transmission \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v "${DOWNLOADDIR:-$HOME/Downloads}:/transmission/download" \
+		-v "${HOME}/.transmission:/transmission/config" \
+		-p 9091:9091 \
+		-p 51413:51413 \
+		-p 51413:51413/udp \
+		shinomineko/transmission
 }
 
 trivy() {
-  docker run --rm \
-    --name trivy \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v "${HOME}/.cache:/root/.cache" \
-    aquasec/trivy "$@"
+	docker run --rm \
+		--name trivy \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		-v "${HOME}/.cache:/root/.cache" \
+		aquasec/trivy "$@"
 }
