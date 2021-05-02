@@ -5,7 +5,7 @@ dif() {
 	if hash delta 2>/dev/null; then
 		delta -s "$@"
 	else
-		diff -y -W="$COLUMNS" "$@"
+		diff -y --width="$COLUMNS" "$@" | less -FRX
 	fi
 }
 
