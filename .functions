@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# use delta if available
+dif() {
+	if hash delta 2>/dev/null; then
+		delta -s "$@"
+	else
+		diff -y -W="$COLUMNS" "$@"
+	fi
+}
+
 # make a dir and enter it
 mkd() {
 	mkdir -p "$@"
