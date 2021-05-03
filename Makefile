@@ -40,3 +40,7 @@ clean:
 	rm -rf $(HOME)/.config/aria2
 
 	rm -rf $(HOME)/.gnupg/gpg*.conf
+
+.PHONY: test
+test:
+	bash ./test.sh
