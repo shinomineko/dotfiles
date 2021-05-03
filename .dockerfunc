@@ -42,6 +42,29 @@ aws() {
 		amazon/aws-cli "$@"
 }
 
+htpasswd() {
+	docker run -it --rm \
+		--name htpasswd \
+		--net none \
+		--log-driver none \
+		shinomineko/htpasswd "$@"
+}
+
+http() {
+	docker run -t --rm \
+		--name httpie \
+		--log-driver none \
+		shinomineko/httpie "$@"
+}
+
+nc() {
+	docker run -it --rm \
+		--name nc \
+		--net host \
+		--entrypoint nc \
+		shinomineko/toolbox "$@"
+}
+
 nmap() {
 	docker run -it --rm \
 		--name nmap \
