@@ -1,0 +1,17 @@
+---
+name: make test
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: make test
+        run: |
+          make test
+        shell: bash
