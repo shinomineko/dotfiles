@@ -1,9 +1,17 @@
 #!/bin/bash
 
 dcleanup() {
-	docker rm "$(docker ps -aq)" 2> /dev/null
-	docker rm -v "$(docker ps --filter status=exited -q)" 2>/dev/null
-	docker rmi "$(docker images --filter dangling=true -q)" 2>/dev/null
+	local containers
+	mapfile -t containers < <(docker ps -aq 2>/dev/null)
+	docker rm "${containers[@]}" 2>/dev/null
+
+	local volumes
+	mapfile -t volumes < <(docker ps --filter status=exited -q 2>/dev/null)
+	docker rm -v "${volumes[@]}" 2>/dev/null
+
+	local images
+	mapfile -t images < <(docker images --filter dangling=true -q 2>/dev/null)
+	docker rmi "${images[@]}" 2>/dev/null
 }
 
 relies_on() {
@@ -28,7 +36,6 @@ rm_stopped() {
 
 aria2() {
 	docker run -it --rm \
-		--name aria2 \
 		-v "${DOWNLOADDIR:-$HOME/Downloads}:/aria2/download" \
 		-v "${HOME}/.config/aria2/aria2.conf:/root/.config/aria2/aria2.conf" \
 		shinomineko/aria2 "$@"
@@ -52,14 +59,12 @@ htpasswd() {
 
 http() {
 	docker run -t --rm \
-		--name httpie \
 		--log-driver none \
 		shinomineko/httpie "$@"
 }
 
 nc() {
 	docker run -it --rm \
-		--name nc \
 		--net host \
 		--entrypoint nc \
 		shinomineko/toolbox "$@"
@@ -67,9 +72,16 @@ nc() {
 
 nmap() {
 	docker run -it --rm \
-		--name nmap \
 		--net host \
 		shinomineko/nmap "$@"
+}
+
+squid() {
+	rm_stopped squid
+	docker run -d \
+		--name squid \
+		-p 3128:3128 \
+		shinomineko/squid "$@"
 }
 
 torproxy() {
@@ -97,7 +109,6 @@ transmission() {
 
 trivy() {
 	docker run --rm \
-		--name trivy \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		-v "${HOME}/.cache:/root/.cache" \
 		aquasec/trivy "$@"
