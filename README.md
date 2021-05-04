@@ -18,7 +18,7 @@ $ make clean
 
 ### run the tests
 
-[shellcheck](https://github.com/koalaman/shellcheck) is required
+the tests run in a container
 
 ```bash
 $ make test
