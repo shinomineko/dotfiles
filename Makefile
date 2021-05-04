@@ -41,6 +41,15 @@ clean:
 
 	rm -rf $(HOME)/.gnupg/gpg*.conf
 
+# allocate a tty if running interactively
+INTERACTIVE := $(shell [ -t 0 ] && echo 1 || echo 0)
+ifeq ($(INTERACTIVE), 1)
+	DOCKERFLAGS += -t
+endif
+
 .PHONY: test
 test:
-	bash ./test.sh
+	docker run --rm -i $(DOCKERFLAGS) \
+		--name dot-shellcheck \
+		-v $(CURDIR):/src:ro \
+		shinomineko/shellcheck ./test.sh

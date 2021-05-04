@@ -2,6 +2,12 @@
 
 ## INIT
 
+# if not running interactively, don't do anything
+case "$-" in
+	*i*) ;;
+	*) return;;
+esac
+
 shell="$(command -v bash)"
 export SHELL="$shell"
 
