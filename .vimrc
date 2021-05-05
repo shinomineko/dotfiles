@@ -3,12 +3,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'pgdouyon/vim-yin-yang'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 filetype plugin indent on
 syntax on
-colorscheme yang
+colorscheme base16-grayscale-dark
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
