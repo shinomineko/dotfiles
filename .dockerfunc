@@ -82,6 +82,8 @@ squid() {
 		--name squid \
 		-p 3128:3128 \
 		shinomineko/squid "$@"
+
+	sudo hostess add squid "$(docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' squid)"
 }
 
 torproxy() {
