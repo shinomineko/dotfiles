@@ -1,7 +1,11 @@
 SHELL := bash
 
 .PHONY: all
-all: sync
+all: plug sync
+
+.PHONY: plug
+plug:
+	bash ./plugins.sh
 
 .PHONY: sync
 sync:
