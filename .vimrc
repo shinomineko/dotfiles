@@ -81,6 +81,22 @@ set complete-=i
 set complete=.,w,b,u,t
 set completeopt=longest,menuone
 
+set splitright
+set splitbelow
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+set wildignore+=.hg,.git,.svn
+set wildignore+=*.bmp,*.jpg,*.jpeg,*.png,*.gif
+set wildignore+=*.o,*.obj,*.dll,*.exe
+set wildignore+=*.sw?
+set wildignore+=*.DS_Store
+set wildignore+=*.pyc
+set wildignore+=*.orig
+set wildignore+=*.so
+
 " ====== file type settings ======
 au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4 sts=4
 au BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
@@ -97,6 +113,13 @@ au FileType nginx setlocal noet ts=4 sw=4 sts=4
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_max_height = 10
+let g:ctrlp_max_files = 0
+let g:ctrlp_mruf_max = 250
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 " ====== vim-markdown ======
 let g:vim_markdown_folding_disabled = 1
