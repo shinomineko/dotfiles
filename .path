@@ -1,0 +1,10 @@
+#!/bin/sh
+
+PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+PATH="$HOME/.local/bin:$PATH"
+
+export GOPATH="$HOME/.go"
+PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
+
+export PATH
