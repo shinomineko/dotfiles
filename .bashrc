@@ -1,7 +1,5 @@
 #!/bin/bash
 
-## INIT
-
 # if not running interactively, don't do anything
 case "$-" in
 	*i*) ;;
@@ -151,7 +149,7 @@ export GPG_TTY
 
 ## STUFF
 
-for file in $HOME/.{functions,dockerfunc,extra,fzf.bash}; do
+for file in $HOME/.{functions,path,dockerfunc,extra,fzf.bash}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		source "$file"
