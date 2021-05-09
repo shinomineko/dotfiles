@@ -22,6 +22,9 @@ syntax on
 set background=dark
 colorscheme base16-grayscale-dark
 
+let mapleader = ","
+let g:mapleader = ","
+
 nnoremap ; :
 nnoremap Q <nop>
 map q: :q
@@ -135,3 +138,11 @@ let g:vim_json_syntax_conceal = 0
 
 " ====== vim-terraform ======
 let g:terraform_fmt_on_save = 1
+
+" ====== vim-go ======
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = 'goimports'
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
