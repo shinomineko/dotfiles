@@ -34,6 +34,8 @@ map q: :q
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+nnoremap <leader><space> :nohlsearch<CR>
+
 set noerrorbells
 set encoding=utf-8
 set autoread
