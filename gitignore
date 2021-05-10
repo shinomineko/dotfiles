@@ -21,3 +21,5 @@ stdout
 *.log
 
 *.retry
+
+*.pyc
