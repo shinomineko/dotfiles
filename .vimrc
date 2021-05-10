@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
@@ -84,12 +86,17 @@ set complete-=i
 set complete=.,w,b,u,t
 set completeopt=longest,menuone
 
+nnoremap <C-x> :bnext<CR>
+nnoremap <C-z> :bprev<CR>
+
 set splitright
 set splitbelow
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+set wildmenu
 
 set wildignore+=.hg,.git,.svn
 set wildignore+=*.bmp,*.jpg,*.jpeg,*.png,*.gif
