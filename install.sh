@@ -58,6 +58,7 @@ install_base() {
 		indent \
 		iptables \
 		jq \
+		kubectl \
 		less \
 		libc6-dev \
 		locales \
@@ -83,9 +84,17 @@ install_base() {
 	apt autoremove -y
 	apt autoclean -y
 	apt clean -y
+
+	curl -Lo /usr/local/bin/stern https://github.com/wercker/stern/releases/latest/download/stern_linux_amd64
+	chown root:root /usr/local/bin/stern
+	chmod a+x /usr/local/bin/stern
+
+	curl -Lo /usr/local/bin/hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
+	chown root:root /usr/local/bin/hostess
+	chmod a+x /usr/local/bin/hostess
 }
 
-install_dots() {
+install_dot() {
 	# create subshell
 	(
 	cd "$HOME"
@@ -100,35 +109,29 @@ install_dots() {
 	)
 }
 
-install_tools() {
+install_plug() {
+	rm -rf "$HOME/.fzf" "$HOME/.fzf.*"
 	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
 	FZF_OPTS=(--key-bindings --no-completion --no-update-rc --no-zsh --no-fish)
 	"$HOME/.fzf/install" "${FZF_OPTS[@]}"
 
 	curl -Lo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+	vim +PlugInstall +PlugClean! +qall
+
 	if hash kubectl 2>/dev/null; then      # docker desktop has its own kubectl, but not the latest
 		curl -Lo "$HOME/.local/bin/kubectl" --create-dirs "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 		chmod a+x "$HOME/.local/bin/kubectl"
-	else
-		apt install -y kubectl --no-install-recommends
 	fi
 
-	sudo curl -Lo /usr/local/bin/stern https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
-	sudo chown root:root /usr/local/bin/stern
-	sudo chmod a+x /usr/local/bin/stern
-
-	sudo curl -Lo /usr/local/bin/hostess https://github.com/cbednarski/hostess/releases/download/v0.5.2/hostess_linux_amd64
-	sudo chown root:root /usr/local/bin/hostess
-	sudo chmod a+x /usr/local/bin/hostess
 }
 
 usage() {
 	echo -e "install.sh\\n\\tinstall my basic ubuntu wsl setup\\n"
 	echo "Usage:"
 	echo " base  - install base pkgs"
-	echo " dots  - install dotfiles"
-	echo " tools - install cli tools and plugins"
+	echo " dot   - install dotfiles"
+	echo " plug  - install cli/vim plugins"
 }
 
 main() {
@@ -140,11 +143,11 @@ main() {
 			setup_sources
 			install_base
 			;;
-		dots)
-			install_dots
+		dot)
+			install_dot
 			;;
-		tools)
-			install_tools
+		plug)
+			install_plug
 			;;
 		*)
 			usage
