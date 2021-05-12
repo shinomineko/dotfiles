@@ -1,11 +1,7 @@
 SHELL := bash
 
 .PHONY: all
-all: plug sync
-
-.PHONY: plug
-plug:
-	bash ./plugins.sh
+all: sync
 
 .PHONY: sync
 sync:
@@ -21,6 +17,11 @@ sync:
 
 	mkdir -p $(HOME)/.config/aria2
 	ln -sfn $(CURDIR)/.config/aria2/aria2.conf $(HOME)/.config/aria2/aria2.conf
+
+	mkdir -p $(HOME)/.ssh/config.d
+	ln -sfn $(CURDIR)/etc/ssh/config $(HOME)/.ssh/config
+
+	sudo ln -sfn $(CURDIR)/etc/timezone /etc/timezone
 
 	gpg --list-keys || true;
 	mkdir -p $(HOME)/.gnupg
@@ -42,6 +43,8 @@ clean:
 
 	rm -rf $(HOME)/.config/nvim
 	rm -rf $(HOME)/.config/aria2
+
+	rm -f $(HOME)/.ssh/config
 
 	rm -rf $(HOME)/.gnupg/gpg*.conf
 
