@@ -65,6 +65,7 @@ install_base() {
 		lsof \
 		make \
 		mount \
+		neovim \
 		net-tools \
 		pinentry-curses \
 		policykit-1 \
