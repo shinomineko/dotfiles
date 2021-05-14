@@ -127,12 +127,53 @@ install_plug() {
 
 }
 
+install_golang() {
+	export GO_VERSION
+	GO_VERSION=$(curl -sSL "https://golang.org/VERSION?m=text")
+	export GO_SRC=/usr/local/go
+
+	if [[ -n "$1" ]]; then
+		GO_VERSION="$1"
+	fi
+
+	if [[ -d "$GO_SRC" ]]; then
+		sudo rm -rf "$GO_SRC"
+		sudo rm -rf "$GOPATH"
+	fi
+
+	GO_VERSION=${GO_VERSION#go}
+
+	(
+	kernel=$(uname -s | tr '[:upper:]' '[:lower:]')
+	curl -sSL "https://storage.googleapis.com/golang/go${GO_VERSION}.${kernel}-amd64.tar.gz" | sudo tar -v -C /usr/local -xz
+	)
+
+	(
+	set -x
+	set +e
+
+	go get golang.org/x/lint/golint
+	go get golang.org/x/tools/cmd/cover
+	go get golang.org/x/tools/gopls
+	go get golang.org/x/review/git-codereview
+	go get golang.org/x/tools/cmd/goimports
+	go get golang.org/x/tools/cmd/gorename
+	go get golang.org/x/tools/cmd/guru
+	go get github.com/axw/gocov/gocov
+	go get github.com/jstemmer/gotags
+	go get github.com/nsf/gocode
+	go get github.com/rogpeppe/godef
+	go get honnef.co/go/tools/cmd/staticcheck
+	)
+}
+
 usage() {
 	echo -e "install.sh\\n\\tinstall my basic ubuntu wsl setup\\n"
 	echo "Usage:"
-	echo " base  - install base pkgs"
-	echo " dot   - install dotfiles"
-	echo " plug  - install cli/vim plugins"
+	echo " base             - install base pkgs"
+	echo " dot              - install dotfiles"
+	echo " plug             - install cli/vim plugins"
+	echo " golang           - install golang and pkgs"
 }
 
 main() {
@@ -149,6 +190,9 @@ main() {
 			;;
 		plug)
 			install_plug
+			;;
+		golang)
+			install_golang "$2"
 			;;
 		*)
 			usage
