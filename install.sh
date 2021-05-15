@@ -58,14 +58,12 @@ install_base() {
 		indent \
 		iptables \
 		jq \
-		kubectl \
 		less \
 		libc6-dev \
 		locales \
 		lsof \
 		make \
 		mount \
-		neovim \
 		net-tools \
 		pinentry-curses \
 		policykit-1 \
@@ -85,18 +83,10 @@ install_base() {
 	apt autoremove -y
 	apt autoclean -y
 	apt clean -y
-
-	curl -Lo /usr/local/bin/stern https://github.com/wercker/stern/releases/latest/download/stern_linux_amd64
-	chown root:root /usr/local/bin/stern
-	chmod a+x /usr/local/bin/stern
-
-	curl -Lo /usr/local/bin/hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
-	chown root:root /usr/local/bin/hostess
-	chmod a+x /usr/local/bin/hostess
 }
 
 install_dot() {
-	# create subshell
+	# subshell
 	(
 	cd "$HOME"
 
@@ -110,21 +100,10 @@ install_dot() {
 	)
 }
 
-install_plug() {
-	rm -rf "$HOME/.fzf" "$HOME/.fzf.*"
-	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-	FZF_OPTS=(--key-bindings --no-completion --no-update-rc --no-zsh --no-fish)
-	"$HOME/.fzf/install" "${FZF_OPTS[@]}"
-
+install_vim() {
 	curl -Lo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	vim +PlugInstall +PlugClean! +qall
-
-	if hash kubectl 2>/dev/null; then      # docker desktop has its own kubectl, but not the latest
-		curl -Lo "$HOME/.local/bin/kubectl" --create-dirs "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-		chmod a+x "$HOME/.local/bin/kubectl"
-	fi
-
 }
 
 install_golang() {
@@ -167,12 +146,40 @@ install_golang() {
 	)
 }
 
+install_tools() {
+	rm -rf "$HOME/.fzf" "$HOME/.fzf.*"
+	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+	FZF_OPTS=(--key-bindings --no-completion --no-update-rc --no-zsh --no-fish)
+	"$HOME/.fzf/install" "${FZF_OPTS[@]}"
+
+	if [[ -h /usr/local/bin/kubectl ]]; then      # docker desktop has its own kubectl, but not the latest
+		curl -Lo "$HOME/.local/bin/kubectl" --create-dirs "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+		chmod a+x "$HOME/.local/bin/kubectl"
+	else
+		sudo apt update || true
+		sudo apt install -y kubectl --no-install-recommends
+	fi
+
+	sudo curl -Lo /usr/local/bin/kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
+	sudo chown root:root /usr/local/bin/kind
+	sudo chmod a+x /usr/local/bin/kind
+
+	sudo curl -Lo /usr/local/bin/stern https://github.com/wercker/stern/releases/latest/download/stern_linux_amd64
+	sudo chown root:root /usr/local/bin/stern
+	sudo chmod a+x /usr/local/bin/stern
+
+	sudo curl -Lo /usr/local/bin/hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
+	sudo chown root:root /usr/local/bin/hostess
+	sudo chmod a+x /usr/local/bin/hostess
+}
+
 usage() {
 	echo -e "install.sh\\n\\tinstall my basic ubuntu wsl setup\\n"
 	echo "Usage:"
 	echo " base             - install base pkgs"
 	echo " dot              - install dotfiles"
-	echo " plug             - install cli/vim plugins"
+	echo " vim              - install vim plugins"
+	echo " tools            - install cli tools"
 	echo " golang           - install golang and pkgs"
 }
 
@@ -188,11 +195,14 @@ main() {
 		dot)
 			install_dot
 			;;
-		plug)
-			install_plug
+		vim)
+			install_vim
 			;;
 		golang)
 			install_golang "$2"
+			;;
+		tools)
+			install_tools
 			;;
 		*)
 			usage
