@@ -87,6 +87,7 @@ nmap() {
 skopeo() {
 	docker run -it --rm \
 		--log-driver none \
+		-v "$(pwd):/data" \
 		shinomineko/skopeo "$@"
 }
 
