@@ -32,19 +32,16 @@ sync:
 
 .PHONY: clean
 clean:
-	rm -f $(HOME)/.bash_profile
-	rm -f $(HOME)/.bashrc
-	rm -f $(HOME)/.vimrc
-	rm -f $(HOME)/.gitconfig
-	rm -f $(HOME)/.gitignore
-	rm -f $(HOME)/.editorconfig
-	rm -f $(HOME)/.functions
-	rm -f $(HOME)/.dockerfunc
+	for file in .aliases .bash_profile .bash_prompt .bashrc .dockerfunc .exports .functions .path .editorconfig .gitconfig .gitignore .vimrc ; do \
+		rm -f $(HOME)/$$file; \
+	done; \
 
 	rm -rf $(HOME)/.config/nvim
 	rm -rf $(HOME)/.config/aria2
 
 	rm -f $(HOME)/.ssh/config
+
+	sudo rm -f /etc/timezone
 
 	rm -rf $(HOME)/.gnupg/gpg*.conf
 
