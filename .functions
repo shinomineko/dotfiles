@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# use delta if available
+# side-by-side diff, use delta if available
 dif() {
 	if hash delta 2>/dev/null; then
 		delta -s "$@"
@@ -26,7 +26,7 @@ tmpd() {
 	cd "$dir" || exit
 }
 
-# tree, ignore `.git` and pipe to `less`
+# tree, ignore `.git` and pipe to `less` with preserved colors
 tre() {
 	tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
 }
