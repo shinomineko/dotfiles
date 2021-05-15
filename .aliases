@@ -32,3 +32,8 @@ fi
 if hash podman 2>/dev/null && ! hash docker 2>/dev/null; then
 	alias docker="podman"
 fi
+
+# scuffed map function
+# for example, list all dirs that contain a certain file:
+# find . -name .editorconfig | map dirname
+alias map="xargs -n1"
