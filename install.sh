@@ -70,6 +70,7 @@ install_base_ubuntu() {
 		grep \
 		gzip \
 		hostname \
+		htop \
 		indent \
 		iptables \
 		jq \
@@ -122,6 +123,7 @@ install_base_fedora() {
 		grep \
 		gzip \
 		hostname \
+		htop \
 		indent \
 		iproute \
 		iptables \
