@@ -5,7 +5,7 @@ dif() {
 	if hash delta 2>/dev/null; then
 		delta -s "$@"
 	else
-		diff -y --width="$COLUMNS" "$@" | less -FRX
+		diff -y --width="$COLUMNS" "$@" | less -FRNX
 	fi
 }
 
@@ -26,7 +26,32 @@ tmpd() {
 	cd "$dir" || exit
 }
 
+# create a .tar.gz archive using `zopfli`, `pigz`, or `gzip` for compression
+targz() {
+	local tmpfile="${1%/}.tar"
+	tar -cvf "$tmpfile" --exclude=".DS_store" "${1}" || return 1
+
+	size=$(stat -c"%s" "${tmpfile}" 2>/dev/null)
+
+	local cmd
+	if (( size < 52428800 )) && hash zopfli 2>/dev/null; then
+		# use `zopfli` if the .tar file is smaller then 50MB and zopfli is available
+		cmd="zopfli"
+	else
+		if hash pigz 2>/dev/null; then
+			cmd="pigz"
+		else
+			cmd="gzip"
+		fi
+	fi
+
+	echo "Compressing .tar using \`${cmd}\`..."
+	"$cmd" -v "$tmpfile" || return 1
+	[ -f "$tmpfile" ] && rm "$tmpfile"
+	echo "${tmpfile}.gz created successfully"
+}
+
 # tree, ignore `.git` and pipe to `less` with preserved colors
 tre() {
-	tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
+	tree -aC -I '.git' --dirsfirst "$@" | less -FRX
 }
