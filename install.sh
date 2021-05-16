@@ -123,15 +123,19 @@ install_base_fedora() {
 		gzip \
 		hostname \
 		indent \
+		iproute \
 		iptables \
+		iputils \
 		jq \
 		langpacks-en \
 		less \
 		lsof \
 		make \
+		ncurses \
 		net-tools \
 		openssh-clients \
 		pinentry-curses \
+		procps-ng \
 		ripgrep \
 		strace \
 		sudo \
