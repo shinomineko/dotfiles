@@ -11,7 +11,6 @@ check_is_sudo() {
 }
 
 setup_sources_fedora() {
-	dnf check-update -y || true
 	dnf install -y \
 		ca-certificates \
 		curl \
@@ -102,7 +101,6 @@ install_base_ubuntu() {
 }
 
 install_base_fedora() {
-	dnf check-update -y || true
 	dnf upgrade -y
 
 	dnf install -y \
@@ -229,7 +227,6 @@ install_tools() {
 
 		case "$distro" in
 			fedora)
-				sudo dnf check-update -y || true
 				sudo dnf install -y kubectl
 				;;
 			ubuntu|debian)
