@@ -4,7 +4,7 @@
 
 ### installing
 
-```bash
+```console
 $ make
 ```
 
@@ -12,7 +12,7 @@ this will create a bunch of symlinks from this repo to your home directory
 
 ### uninstalling
 
-```bash
+```console
 $ make clean
 ```
 
@@ -20,6 +20,16 @@ $ make clean
 
 the tests run in a container
 
-```bash
+```console
 $ make test
+```
+
+### run the bootstrap script
+
+use it at your own risk
+
+```console
+$ curl -sSLO https://raw.githubusercontent.com/shinomineko/dotfiles/master/bootstrap.sh
+$ chmod +x bootstrap.sh
+$ ./bootstrap.sh
 ```
