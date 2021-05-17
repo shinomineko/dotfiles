@@ -250,13 +250,12 @@ install_tools() {
 }
 
 usage() {
-	echo -e "install.sh\\n\\tinstall my basic wsl setup\\n"
-	echo "Usage:"
-	echo " base             - install base pkgs"
+	echo "Usage: bootstrap.sh <command>"
+	echo " base             - install base packages"
 	echo " dot              - install dotfiles"
 	echo " vim              - install vim plugins"
 	echo " tools            - install cli tools"
-	echo " golang           - install golang and pkgs"
+	echo " golang           - install golang and packages"
 }
 
 main() {
