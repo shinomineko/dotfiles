@@ -4,16 +4,10 @@
 
 ### installing
 
-```console
-$ make
-```
-
 this will create a bunch of symlinks from this repo to your home directory
 
-### uninstalling
-
 ```console
-$ make clean
+$ make
 ```
 
 ### run the tests
@@ -29,7 +23,7 @@ $ make test
 use it at your own risk
 
 ```console
-$ curl -sSLO https://raw.githubusercontent.com/shinomineko/dotfiles/master/bootstrap.sh
+$ curl -sSLO https://raw.githubusercontent.com/shinomineko/dotfiles/master/bin/bootstrap.sh
 $ chmod +x bootstrap.sh
 $ ./bootstrap.sh
 ```
