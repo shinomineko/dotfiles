@@ -25,6 +25,15 @@ setup_sources_fedora() {
 	repo_gpgcheck=1
 	gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 	EOF
+
+	cat <<-EOF > /etc/yum.repos.d/google-chrome.repo
+	[google-chrome]
+	name=google-chrome
+	baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+	enabled=1
+	gpgcheck=1
+	gpgkey=https://dl.google.com/linux/linux_signing_key.pub
+	EOF
 }
 
 setup_sources_ubuntu() {
@@ -40,6 +49,8 @@ setup_sources_ubuntu() {
 
 	curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 	echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
+
+	echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list
 
 	# turn off translations
 	mkdir -p /etc/apt/apt.conf.d
