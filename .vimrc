@@ -22,7 +22,8 @@ call plug#end()
 filetype plugin indent on
 syntax on
 set background=dark
-silent! colorscheme base16-grayscale-dark
+set termguicolors
+silent! colorscheme base16-gruvbox-dark-medium
 
 let mapleader = ","
 let g:mapleader = ","
