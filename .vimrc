@@ -2,10 +2,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'chr4/nginx.vim'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -16,6 +18,7 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
+Plug 'wgwoods/vim-systemd-syntax'
 Plug 'chriskempson/base16-vim'
 call plug#end()
 
@@ -156,3 +159,10 @@ let g:go_fmt_command = 'goimports'
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
+
+" ====== vim-multiple-cursors ======
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-i>'
+let g:multi_cursor_prev_key='<C-y>'
+let g:multi_cursor_skip_key='<C-b>'
+let g:multi_cursor_quit_key='<Esc>'
