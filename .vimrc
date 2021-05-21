@@ -7,7 +7,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'chr4/nginx.vim'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -160,9 +160,7 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 
-" ====== vim-multiple-cursors ======
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-i>'
-let g:multi_cursor_prev_key='<C-y>'
-let g:multi_cursor_skip_key='<C-b>'
-let g:multi_cursor_quit_key='<Esc>'
+" ====== vim-visual-multi ======
+let g:VM_maps = {}
+let g:VM_maps['Find Under'] = '<C-i>'
+let g:VM_maps['Exit'] = '<Esc>'
