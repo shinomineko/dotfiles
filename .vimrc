@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -8,6 +9,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-gitgutter'
 Plug 'mg979/vim-visual-multi'
+Plug 'mhinz/vim-sayonara'
 Plug 'chr4/nginx.vim'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -31,7 +33,6 @@ silent! colorscheme base16-gruvbox-dark-medium
 let mapleader = ","
 let g:mapleader = ","
 
-nnoremap ; :
 nnoremap Q <nop>
 map q: :q
 
@@ -39,6 +40,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 nnoremap <leader><space> :nohlsearch<CR>
+nmap <leader>w :w!<CR>
 
 set noerrorbells
 set encoding=utf-8
@@ -164,3 +166,26 @@ au FileType go nmap <leader>t <Plug>(go-test)
 let g:VM_maps = {}
 let g:VM_maps['Find Under'] = '<C-i>'
 let g:VM_maps['Exit'] = '<Esc>'
+
+" ====== vim-sayonara ======
+nnoremap <silent> <leader>q :Sayonara<CR>
+
+" ====== coc.nvim ======
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+" note: use ':verbose imap <tab>' to make sure tab is not mapped by other plugin
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" vim:ts=2:sw=2:et
