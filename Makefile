@@ -19,11 +19,9 @@ dot: ## install dotfiles
 
 	ln -sfn $(CURDIR)/gitignore $(HOME)/.gitignore
 
-	mkdir -p $(HOME)/.config/nvim
-	ln -sfn $(CURDIR)/.config/nvim/init.vim $(HOME)/.config/nvim/init.vim
+	ln -sfn $(CURDIR)/.config/nvim $(HOME)/.config/nvim
 
-	mkdir -p $(HOME)/.config/aria2
-	ln -sfn $(CURDIR)/.config/aria2/aria2.conf $(HOME)/.config/aria2/aria2.conf
+	ln -sfn $(CURDIR)/.config/aria2 $(HOME)/.config/aria2
 
 	gpg --list-keys || true;
 	mkdir -p $(HOME)/.gnupg
