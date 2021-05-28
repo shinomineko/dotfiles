@@ -109,6 +109,8 @@ torproxy() {
 		-v /etc/localtime:/etc/localtime:ro \
 		-p 9050:9050 \
 		shinomineko/torproxy
+
+	sudo hostess add torproxy "$(docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' torproxy)"
 }
 
 transmission() {
