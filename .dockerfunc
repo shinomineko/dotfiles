@@ -38,6 +38,10 @@ rm_stopped() {
 	fi
 }
 
+rmctr() {
+	docker rm -f "$@" 2>/dev/null || true
+}
+
 aria2() {
 	docker run -it --rm \
 		-v "${DOWNLOADDIR:-$HOME/Downloads}:/aria2/download" \
@@ -118,7 +122,7 @@ transmission() {
 	docker run -d \
 		--name transmission \
 		-v /etc/localtime:/etc/localtime:ro \
-		-v "${DOWNLOADDIR:-$HOME/Downloads}:/transmission/download" \
+		-v "${TORRENTSDIR:-$HOME/Torrents}:/transmission/download" \
 		-v "${HOME}/.transmission:/transmission/config" \
 		-p 9091:9091 \
 		-p 51413:51413 \
