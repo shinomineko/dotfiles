@@ -32,6 +32,21 @@ setup_sources() {
 	gpgcheck=1
 	gpgkey=https://dl.google.com/linux/linux_signing_key.pub
 	EOF
+
+	rpm --import https://downloads.1password.com/linux/keys/1password.asc
+	cat <<-EOF > /etc/yum.repos.d/1password.repo
+	[1password]
+	name="1Password Stable Channel"
+	baseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch
+	enabled=1
+	gpgcheck=1
+	repo_gpgcheck=1
+	gpgkey="https://downloads.1password.com/linux/keys/1password.asc"
+	EOF
+
+	# RPM fusion
+	dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
+
 }
 
 install_base() {
@@ -85,6 +100,22 @@ install_base() {
 	dnf clean all
 }
 
+install_desktop() {
+	sudo dnf upgrade -y
+	sudo dnf install -y \
+		1password \
+		google-chrome-stable \
+		tilix \
+		xclip
+}
+
+install_graphics() {
+	dnf upgrade -y
+	dnf install -y \
+		akmod-nvidia \
+		xorg-x11-drv-nvidia-cuda
+}
+
 install_dot() {
 	# subshell
 	(
@@ -101,6 +132,12 @@ install_dot() {
 }
 
 install_vim() {
+	# install node, needed for coc.nvim
+	sudo dnf module install nodejs:14 -y
+
+	# also install neovim
+	sudo dnf install neovim -y
+
 	curl -Lo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	vim +PlugInstall +PlugClean! +qall
@@ -175,6 +212,8 @@ install_tools() {
 usage() {
 	echo "Usage: bootstrap.sh <command>"
 	echo " base             - install base packages"
+	echo " desktop          - install desktop apps"
+	echo " graphics         - install nvidia graphics drivers"
 	echo " dot              - install dotfiles"
 	echo " vim              - install vim plugins"
 	echo " tools            - install cli tools"
@@ -200,6 +239,13 @@ main() {
 					exit 1
 					;;
 			esac
+			;;
+		desktop)
+			install_desktop
+			;;
+		graphics)
+			check_is_sudo
+			install_graphics
 			;;
 		dot)
 			install_dot
