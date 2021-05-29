@@ -1,8 +1,6 @@
 #!/bin/bash
 set -eo pipefail
 
-export DEBIAN_FRONTEND=noninteractive
-
 check_is_sudo() {
 	if [ "$(id -u)" -ne "0" ]; then
 		echo "Please run as root"
@@ -10,7 +8,7 @@ check_is_sudo() {
 	fi
 }
 
-setup_sources_fedora() {
+setup_sources() {
 	dnf install -y \
 		ca-certificates \
 		curl \
@@ -36,82 +34,7 @@ setup_sources_fedora() {
 	EOF
 }
 
-setup_sources_ubuntu() {
-	apt update || true
-	apt install -y \
-		apt-transport-https \
-		ca-certificates \
-		curl \
-		dirmngr \
-		gnupg2 \
-		lsb-release \
-		--no-install-recommends
-
-	curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-	echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
-
-	echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list
-
-	# turn off translations
-	mkdir -p /etc/apt/apt.conf.d
-	echo 'Acquire::Languages "none";' | tee /etc/apt/apt.conf.d/99translations
-}
-
-install_base_ubuntu() {
-	apt update || true
-	apt upgrade -y
-
-	apt install -y \
-		adduser \
-		automake \
-		bash-completion \
-		bc \
-		bzip2 \
-		ca-certificates \
-		coreutils \
-		curl \
-		dnsutils \
-		file \
-		findutils \
-		gcc \
-		git \
-		gnupg \
-		gnupg2 \
-		grep \
-		gzip \
-		hostname \
-		htop \
-		indent \
-		iptables \
-		jq \
-		less \
-		libc6-dev \
-		locales \
-		lsof \
-		make \
-		mount \
-		net-tools \
-		pinentry-curses \
-		policykit-1 \
-		ripgrep \
-		ssh \
-		strace \
-		sudo \
-		tar \
-		tree \
-		tzdata \
-		unzip \
-		vim \
-		xz-utils \
-		zip \
-		--no-install-recommends
-
-	apt autoremove -y
-	apt autoclean -y
-	apt clean -y
-}
-
-install_base_fedora() {
+install_base() {
 	dnf upgrade -y
 
 	dnf install -y \
@@ -233,18 +156,7 @@ install_tools() {
 		curl -Lo "$HOME/.local/bin/kubectl" --create-dirs "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 		chmod a+x "$HOME/.local/bin/kubectl"
 	else
-		local distro
-		distro=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
-
-		case "$distro" in
-			fedora)
-				sudo dnf install -y kubectl
-				;;
-			ubuntu|debian)
-				sudo apt update || true
-				sudo apt install -y kubectl --no-install-recommends
-				;;
-		esac
+		sudo dnf install -y kubectl
 	fi
 
 	sudo curl -Lo /usr/local/bin/kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
@@ -280,12 +192,8 @@ main() {
 
 			case "$distro" in
 				fedora)
-					setup_sources_fedora
-					install_base_fedora
-					;;
-				ubuntu|debian)
-					setup_sources_ubuntu
-					install_base_ubuntu
+					setup_sources
+					install_base
 					;;
 				*)
 					echo "Distro: ${distro} is not supported"
