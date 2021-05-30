@@ -104,7 +104,12 @@ install_desktop() {
 	sudo dnf upgrade -y
 	sudo dnf install -y \
 		1password \
+		feh \
 		google-chrome-stable \
+		i3 \
+		i3lock \
+		i3status \
+		rofi \
 		tilix \
 		xclip
 }
