@@ -28,12 +28,13 @@ filetype plugin indent on
 syntax on
 set background=dark
 set termguicolors
-silent! colorscheme base16-gruvbox-dark-medium
+silent! colorscheme base16-ashes
 
 let mapleader = ","
 let g:mapleader = ","
 
 nnoremap Q <nop>
+nnoremap ; :
 map q: :q
 
 nnoremap n nzzzv
