@@ -100,7 +100,7 @@ install_base() {
 	dnf clean all
 }
 
-install_desktop() {
+install_wmapps() {
 	sudo dnf upgrade -y
 	sudo dnf install -y \
 		1password \
@@ -215,9 +215,9 @@ install_tools() {
 }
 
 usage() {
-	echo "Usage: bootstrap.sh <command>"
+	echo "Usage: install.sh <command>"
 	echo " base             - install base packages"
-	echo " desktop          - install desktop apps"
+	echo " wm               - install window manager and desktop packages"
 	echo " graphics         - install nvidia graphics drivers"
 	echo " dot              - install dotfiles"
 	echo " vim              - install vim plugins"
@@ -245,8 +245,8 @@ main() {
 					;;
 			esac
 			;;
-		desktop)
-			install_desktop
+		wm)
+			install_wmapps
 			;;
 		graphics)
 			check_is_sudo
