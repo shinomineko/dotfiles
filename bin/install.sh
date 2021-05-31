@@ -110,6 +110,7 @@ install_wmapps() {
 		i3 \
 		i3lock \
 		i3status \
+		maim \
 		rofi \
 		tilix \
 		xclip
