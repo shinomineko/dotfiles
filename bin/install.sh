@@ -104,6 +104,7 @@ install_wmapps() {
 	sudo dnf upgrade -y
 	sudo dnf install -y \
 		1password \
+		dunst \
 		feh \
 		google-chrome-stable \
 		i3 \
