@@ -18,12 +18,12 @@ the tests run in a container
 $ make test
 ```
 
-### run the bootstrap script
+### run the install script
 
 use it at your own risk
 
 ```console
-$ curl -sSLO https://raw.githubusercontent.com/shinomineko/dotfiles/master/bin/bootstrap.sh
-$ chmod +x bootstrap.sh
-$ ./bootstrap.sh
+$ curl -sSLO https://raw.githubusercontent.com/shinomineko/dotfiles/master/bin/install.sh
+$ chmod +x install.sh
+$ ./install.sh
 ```
