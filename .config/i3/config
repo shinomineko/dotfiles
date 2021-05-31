@@ -191,3 +191,7 @@ exec --no-startup-id "feh --bg-fill ${HOME}/Pictures/wal/coast.png"
 
 # en/th kb layout
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout us,th"
+
+# screenshot
+bindsym Print exec maim ~/Pictures/$(date +%s).png
+bindsym Shift+Print exec maim -s ~/Pictures/$(date +%s).png

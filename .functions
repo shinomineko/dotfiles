@@ -55,3 +55,9 @@ targz() {
 tre() {
 	tree -aC -I '.git' --dirsfirst "$@" | less -FRX
 }
+
+# open a twitch stream using `streamlink` because I fucking hate ads
+twitch() {
+	local channel="$1"
+	streamlink --player mpv twitch.tv/"$channel" best
+}
