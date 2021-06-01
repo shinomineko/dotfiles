@@ -1,0 +1,32 @@
+[/]
+copy-on-select=true
+quake-specific-monitor=0
+session-name='${title}'
+terminal-title-style='none'
+theme-variant='dark'
+use-overlay-scrollbar=false
+window-style='disable-csd-hide-toolbar'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#1C2023'
+badge-color-set=false
+badge-text=''
+bold-color='#D5D5C4C4A1A1'
+bold-color-set=false
+cursor-background-color='#D5D5C4C4A1A1'
+cursor-blink-mode='system'
+cursor-colors-set=false
+cursor-foreground-color='#282828282828'
+cursor-shape='block'
+default-size-columns=120
+default-size-rows=32
+font='Essential PragmataPro 11'
+foreground-color='#C7CCD1'
+highlight-colors-set=false
+login-shell=true
+palette=['#1C2023', '#C7AE95', '#95C7AE', '#AEC795', '#AE95C7', '#C795AE', '#95AEC7', '#C7CCD1', '#747C84', '#C7AE95', '#95C7AE', '#AEC795', '#AE95C7', '#C795AE', '#95AEC7', '#F3F4F5']
+scrollback-lines=100000
+terminal-bell='none'
+use-system-font=false
+use-theme-colors=false
+visible-name='Default'
