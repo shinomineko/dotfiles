@@ -9,7 +9,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-gitgutter'
 Plug 'mg979/vim-visual-multi'
-Plug 'mhinz/vim-sayonara'
 Plug 'chr4/nginx.vim'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -167,9 +166,6 @@ au FileType go nmap <leader>t <Plug>(go-test)
 let g:VM_maps = {}
 let g:VM_maps['Find Under'] = '<C-i>'
 let g:VM_maps['Exit'] = '<Esc>'
-
-" ====== vim-sayonara ======
-nnoremap <silent> <leader>q :Sayonara<CR>
 
 " ====== coc.nvim ======
 set cmdheight=2
