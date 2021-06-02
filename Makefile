@@ -19,7 +19,7 @@ dot: ## install dotfiles
 
 	ln -sfn $(CURDIR)/gitignore $(HOME)/.gitignore
 
-	mkdir -p $(HOME)/.vim
+	mkdir -p $(HOME)/.vim $(HOME)/.config
 	ln -sfn $(CURDIR)/coc-settings.json $(HOME)/.vim/coc-settings.json
 	ln -sfn $(CURDIR)/.config/nvim $(HOME)/.config/nvim
 
