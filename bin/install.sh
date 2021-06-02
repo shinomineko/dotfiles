@@ -144,7 +144,7 @@ install_dot() {
 
 install_vim() {
 	# install node, needed for coc.nvim
-	sudo dnf module install nodejs:14 -y
+	sudo dnf module install nodejs:14/default -y
 
 	# also install neovim
 	sudo dnf install neovim -y
