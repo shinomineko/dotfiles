@@ -26,6 +26,7 @@ highlight-colors-set=false
 login-shell=true
 palette=['#1C2023', '#C7AE95', '#95C7AE', '#AEC795', '#AE95C7', '#C795AE', '#95AEC7', '#C7CCD1', '#747C84', '#C7AE95', '#95C7AE', '#AEC795', '#AE95C7', '#C795AE', '#95AEC7', '#F3F4F5']
 scrollback-lines=100000
+show-scrollbar=false
 terminal-bell='none'
 use-system-font=false
 use-theme-colors=false
