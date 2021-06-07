@@ -220,6 +220,26 @@ install_tools() {
 	sudo chmod a+x /usr/local/bin/hostess
 }
 
+install_docker() {
+	cat <<-EOF > /etc/yum.repos.d/docker.repo
+	[docker]
+	name=Docker CE Stable
+	baseurl=https://download.docker.com/linux/fedora/\$releasever/\$basearch/stable
+	enabled=1
+	gpgcheck=1
+	gpgkey=https://download.docker.com/linux/fedora/gpg
+	EOF
+
+	dnf install -y \
+		containerd.io \
+		docker-ce \
+		docker-ce-cli
+
+	systemctl daemon-reload
+	systemctl restart docker
+	systemctl enable docker
+}
+
 usage() {
 	echo -e "install.sh\\n\\tInstall my basic fedora setup"
 	echo "Usage: install.sh <command>"
@@ -229,6 +249,7 @@ usage() {
 	echo " dot              - install dotfiles"
 	echo " vim              - install vim plugins"
 	echo " tools            - install cli tools"
+	echo " docker           - install docker"
 	echo " golang           - install golang and packages"
 }
 
@@ -259,6 +280,10 @@ main() {
 			;;
 		tools)
 			install_tools
+			;;
+		docker)
+			check_is_sudo
+			install_docker
 			;;
 		*)
 			usage
