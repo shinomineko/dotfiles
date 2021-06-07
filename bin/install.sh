@@ -54,8 +54,11 @@ setup_sources() {
 }
 
 install_base() {
-	dnf upgrade -y
+	echo
+	echo "Installing base packages..."
+	echo
 
+	dnf upgrade -y
 	dnf install -y \
 		automake \
 		bash-completion \
@@ -105,6 +108,10 @@ install_base() {
 }
 
 install_wmapps() {
+	echo
+	echo "Installing window manager and desktop packages..."
+	echo
+
 	sudo dnf upgrade -y
 	sudo dnf install -y \
 		1password \
@@ -121,6 +128,10 @@ install_wmapps() {
 }
 
 install_graphics() {
+	echo
+	echo "Installing graphics drivers..."
+	echo
+
 	dnf upgrade -y
 	dnf install -y \
 		akmod-nvidia \
@@ -128,6 +139,10 @@ install_graphics() {
 }
 
 install_dot() {
+	echo
+	echo "Installing dotfiles..."
+	echo
+
 	# subshell
 	(
 	cd "$HOME"
@@ -143,6 +158,10 @@ install_dot() {
 }
 
 install_vim() {
+	echo
+	echo "Installing neovim and vim plugins..."
+	echo
+
 	# install node, needed for coc.nvim
 	sudo dnf module install nodejs:14/default -y
 
@@ -155,6 +174,10 @@ install_vim() {
 }
 
 install_golang() {
+	echo
+	echo "Installing golang and packages..."
+	echo
+
 	export GO_VERSION
 	GO_VERSION=$(curl -sSL "https://golang.org/VERSION?m=text")
 	export GO_SRC=/usr/local/go
@@ -195,10 +218,18 @@ install_golang() {
 }
 
 install_tools() {
+	echo
+	echo "Installing fzf..."
+	echo
+
 	rm -rf "$HOME/.fzf" "$HOME/.fzf.*"
 	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
 	FZF_OPTS=(--key-bindings --no-completion --no-update-rc --no-zsh --no-fish)
 	"$HOME/.fzf/install" "${FZF_OPTS[@]}"
+
+	echo
+	echo "Installing kubectl..."
+	echo
 
 	if [[ -h /usr/local/bin/kubectl ]]; then      # docker desktop has its own kubectl, but not the latest
 		curl -Lo "$HOME/.local/bin/kubectl" --create-dirs "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -207,13 +238,25 @@ install_tools() {
 		sudo dnf install -y kubectl
 	fi
 
+	echo
+	echo "Installing kind..."
+	echo
+
 	sudo curl -Lo /usr/local/bin/kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
 	sudo chown root:root /usr/local/bin/kind
 	sudo chmod a+x /usr/local/bin/kind
 
+	echo
+	echo "Installing stern..."
+	echo
+
 	sudo curl -Lo /usr/local/bin/stern https://github.com/wercker/stern/releases/latest/download/stern_linux_amd64
 	sudo chown root:root /usr/local/bin/stern
 	sudo chmod a+x /usr/local/bin/stern
+
+	echo
+	echo "Installing hostess..."
+	echo
 
 	sudo curl -Lo /usr/local/bin/hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
 	sudo chown root:root /usr/local/bin/hostess
@@ -221,6 +264,10 @@ install_tools() {
 }
 
 install_docker() {
+	echo
+	echo "Installing docker..."
+	echo
+
 	cat <<-EOF > /etc/yum.repos.d/docker.repo
 	[docker]
 	name=Docker CE Stable
