@@ -61,6 +61,12 @@ aws() {
 		amazon/aws-cli "$@"
 }
 
+dive() {
+	docker run -it --rm \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		wagoodman/dive "$@"
+}
+
 htpasswd() {
 	docker run -it --rm \
 		--name htpasswd \
