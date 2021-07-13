@@ -33,6 +33,11 @@ if hash podman 2>/dev/null && ! hash docker 2>/dev/null; then
 	alias docker="podman"
 fi
 
+if hash kubectl 2>/dev/null; then
+	alias k="kubectl"
+	complete -F __start_kubectl k
+fi
+
 # scuffed map function
 # for example, list all dirs that contain a certain file:
 # find . -name .editorconfig | map dirname

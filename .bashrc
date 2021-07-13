@@ -46,6 +46,12 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 
+# source kubectl bash completion
+if hash kubectl 2>/dev/null; then
+	# shellcheck source=/dev/null
+	source <(kubectl completion bash)
+fi
+
 
 for file in $HOME/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports,fzf.bash}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
