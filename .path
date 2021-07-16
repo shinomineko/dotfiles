@@ -7,7 +7,7 @@ PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/.go"
 PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
 
-CDPATH="$CDPATH:$GOPATH/src/github.com:$GOPATH/src"
+CDPATH="$CDPATH:$HOME/src/gh:$GOPATH/src/github.com:$GOPATH/src"
 
 export PATH
 export CDPATH
