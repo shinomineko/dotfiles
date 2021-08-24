@@ -20,14 +20,14 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'wgwoods/vim-systemd-syntax'
-Plug 'chriskempson/base16-vim'
+Plug 'wojciechkepka/vim-github-dark'
 call plug#end()
 
 filetype plugin indent on
 syntax on
 set background=dark
 set termguicolors
-silent! colorscheme base16-ashes
+silent! colorscheme ghdark
 
 let mapleader = ","
 let g:mapleader = ","
