@@ -125,6 +125,12 @@ install_vim() {
 	curl -Lo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	vim +PlugInstall +PlugClean! +qall
+
+	# update alternatives to vim
+	sudo update-alternatives --install /usr/bin/vi vi "$(command -v vim)" 60
+	sudo update-alternatives --config vi
+	sudo update-alternatives --install /usr/bin/editor editor "$(command -v vim)" 60
+	sudo update-alternatives --config editor
 }
 
 install_golang() {
