@@ -9,48 +9,22 @@ check_is_sudo() {
 }
 
 setup_sources() {
-	dnf install -y \
+	apt-get update
+	apt-get install -y \
+		apt-transport-https \
 		ca-certificates \
 		curl \
-		gnupg2
+		gnupg2 \
+		lsb-release \
+		--no-install-recommends
 
-	cat <<-EOF > /etc/yum.repos.d/kubernetes.repo
-	[kubernetes]
-	name=Kubernetes
-	baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-	enabled=1
-	gpgcheck=1
-	repo_gpgcheck=1
-	gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-	EOF
+	curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
-	cat <<-EOF > /etc/yum.repos.d/google-chrome.repo
-	[google-chrome]
-	name=google-chrome
-	baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
-	enabled=1
-	gpgcheck=1
-	gpgkey=https://dl.google.com/linux/linux_signing_key.pub
-	EOF
+	echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
 
-	rpm --import https://downloads.1password.com/linux/keys/1password.asc
-	cat <<-EOF > /etc/yum.repos.d/1password.repo
-	[1password]
-	name="1Password Stable Channel"
-	baseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch
-	enabled=1
-	gpgcheck=1
-	repo_gpgcheck=1
-	gpgkey="https://downloads.1password.com/linux/keys/1password.asc"
-	EOF
-
-	# RPM fusion
-	local fedoraversion
-	fedoraversion="$(rpm -E %fedora)"
-
-	dnf install -y \
-		https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$fedoraversion".noarch.rpm \
-		https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$fedoraversion".noarch.rpm
+	# turn off translations
+	mkdir -p /etc/apt/apt.conf.d
+	echo 'Acquire::Languages "none";' | tee /etc/apt/apt.conf.d/99translations
 }
 
 install_base() {
@@ -58,8 +32,11 @@ install_base() {
 	echo "Installing base packages..."
 	echo
 
-	dnf upgrade -y
-	dnf install -y \
+	apt update || true
+	apt upgrade -y
+
+	apt install -y \
+		adduser \
 		automake \
 		bash-completion \
 		bc \
@@ -72,27 +49,26 @@ install_base() {
 		findutils \
 		gcc \
 		git \
-		glibc-all-langpacks \
+		gnupg \
 		gnupg2 \
 		grep \
 		gzip \
 		hostname \
 		htop \
 		indent \
-		iproute \
 		iptables \
-		iputils \
 		jq \
-		langpacks-en \
 		less \
+		libc6-dev \
+		locales \
 		lsof \
 		make \
-		ncurses \
+		mount \
 		net-tools \
-		openssh-clients \
 		pinentry-curses \
-		procps-ng \
+		policykit-1 \
 		ripgrep \
+		ssh \
 		strace \
 		sudo \
 		tar \
@@ -100,42 +76,13 @@ install_base() {
 		tzdata \
 		unzip \
 		vim \
-		xz \
-		zip
+		xz-utils \
+		zip \
+		--no-install-recommends
 
-	dnf autoremove -y
-	dnf clean all
-}
-
-install_wmapps() {
-	echo
-	echo "Installing window manager and desktop packages..."
-	echo
-
-	sudo dnf upgrade -y
-	sudo dnf install -y \
-		1password \
-		dunst \
-		feh \
-		google-chrome-stable \
-		i3 \
-		i3lock \
-		i3status \
-		maim \
-		rofi \
-		tilix \
-		xclip
-}
-
-install_graphics() {
-	echo
-	echo "Installing graphics drivers..."
-	echo
-
-	dnf upgrade -y
-	dnf install -y \
-		akmod-nvidia \
-		xorg-x11-drv-nvidia-cuda
+	apt autoremove -y
+	apt autoclean -y
+	apt clean -y
 }
 
 install_dot() {
@@ -159,14 +106,20 @@ install_dot() {
 
 install_vim() {
 	echo
-	echo "Installing neovim and vim plugins..."
+	echo "Installing vim stuff..."
 	echo
 
 	# install node, needed for coc.nvim
-	sudo dnf module install nodejs:14/default -y
+	curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+	VERSION=node_14.x
+	DISTRO="$(lsb_release -s -c)"
+	echo "deb https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+	echo "deb-src https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
 
-	# also install neovim
-	sudo dnf install neovim -y
+	sudo apt update || true
+	sudo apt install -y \
+		nodejs \
+		--no-install-recommends
 
 	curl -Lo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -235,7 +188,8 @@ install_tools() {
 		curl -Lo "$HOME/.local/bin/kubectl" --create-dirs "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 		chmod a+x "$HOME/.local/bin/kubectl"
 	else
-		sudo dnf install -y kubectl
+		sudo apt update || true
+		sudo apt-get install -y kubectl --no-install-recommends
 	fi
 
 	echo
@@ -263,40 +217,13 @@ install_tools() {
 	sudo chmod a+x /usr/local/bin/hostess
 }
 
-install_docker() {
-	echo
-	echo "Installing docker..."
-	echo
-
-	cat <<-EOF > /etc/yum.repos.d/docker.repo
-	[docker]
-	name=Docker CE Stable
-	baseurl=https://download.docker.com/linux/fedora/\$releasever/\$basearch/stable
-	enabled=1
-	gpgcheck=1
-	gpgkey=https://download.docker.com/linux/fedora/gpg
-	EOF
-
-	dnf install -y \
-		containerd.io \
-		docker-ce \
-		docker-ce-cli
-
-	systemctl daemon-reload
-	systemctl restart docker
-	systemctl enable docker
-}
-
 usage() {
 	echo -e "install.sh\\n\\tInstall my basic fedora setup"
 	echo "Usage: install.sh <command>"
 	echo " base             - install base packages"
-	echo " wm               - install window manager and desktop packages"
-	echo " graphics         - install nvidia graphics drivers"
 	echo " dot              - install dotfiles"
 	echo " vim              - install vim plugins"
 	echo " tools            - install cli tools"
-	echo " docker           - install docker"
 	echo " golang           - install golang and packages"
 }
 
@@ -309,13 +236,6 @@ main() {
 			setup_sources
 			install_base
 			;;
-		wm)
-			install_wmapps
-			;;
-		graphics)
-			check_is_sudo
-			install_graphics
-			;;
 		dot)
 			install_dot
 			;;
@@ -327,10 +247,6 @@ main() {
 			;;
 		tools)
 			install_tools
-			;;
-		docker)
-			check_is_sudo
-			install_docker
 			;;
 		*)
 			usage
