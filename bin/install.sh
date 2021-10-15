@@ -219,7 +219,7 @@ install_tools() {
 }
 
 usage() {
-	echo -e "install.sh\\n\\tInstall my basic fedora setup"
+	echo -e "install.sh\\n\\tInstall my basic ubuntu setup"
 	echo "Usage: install.sh <command>"
 	echo " base             - install base packages"
 	echo " dot              - install dotfiles"
