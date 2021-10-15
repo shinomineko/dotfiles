@@ -68,6 +68,7 @@ install_base() {
 		pinentry-curses \
 		policykit-1 \
 		ripgrep \
+		shellcheck \
 		ssh \
 		strace \
 		sudo \
