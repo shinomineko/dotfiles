@@ -38,7 +38,7 @@ rm_stopped() {
 	fi
 }
 
-rmctr() {
+rmc() {
 	docker rm -f "$@" 2>/dev/null || true
 }
 
