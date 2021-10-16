@@ -24,11 +24,6 @@ dot: ## install dotfiles
 	ln -sfn $(CURDIR)/.config/nvim $(HOME)/.config/nvim
 
 	ln -sfn $(CURDIR)/.config/aria2 $(HOME)/.config/aria2
-	ln -sfn $(CURDIR)/.config/i3 $(HOME)/.config/i3
-	ln -sfn $(CURDIR)/.config/dunst $(HOME)/.config/dunst
-
-	mkdir -p $(HOME)/Pictures
-	ln -sfn $(CURDIR)/wal $(HOME)/Pictures/wal
 
 	gpg --list-keys || true;
 	mkdir -p $(HOME)/.gnupg
