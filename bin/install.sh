@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eo pipefail
 
+export DEBIAN_FRONTEND=noninteractive
+
 check_is_sudo() {
 	if [ "$(id -u)" -ne "0" ]; then
 		echo "Please run as root"
