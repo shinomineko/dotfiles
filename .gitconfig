@@ -22,9 +22,10 @@
 
 [pull]
 	rebase = true
+	default = current
 
 [push]
-	default = nothing
+	default = current
 
 [init]
 	defaultBranch = main
