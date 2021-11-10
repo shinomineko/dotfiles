@@ -140,5 +140,5 @@ trivy() {
 	docker run -t --rm \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		-v "${HOME}/.cache:/root/.cache" \
-		aquasec/trivy "$@"
+		aquasec/trivy "$@" | less -FRX
 }
