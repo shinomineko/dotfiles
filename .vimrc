@@ -168,6 +168,12 @@ let g:VM_maps = {}
 let g:VM_maps['Find Under'] = '<C-i>'
 let g:VM_maps['Exit'] = '<Esc>'
 
+" ====== vim-fugitive ======
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>ga :Git add %:p<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gp :Git push<CR>
+
 " ====== coc.nvim ======
 set cmdheight=2
 set updatetime=300
