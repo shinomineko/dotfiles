@@ -20,14 +20,14 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'wgwoods/vim-systemd-syntax'
-Plug 'wojciechkepka/vim-github-dark'
+Plug 'lifepillar/vim-solarized8'
 call plug#end()
 
 filetype plugin indent on
 syntax on
-set background=dark
+set background=light
 set termguicolors
-silent! colorscheme ghdark
+silent! colorscheme solarized8_flat
 
 let mapleader = ","
 let g:mapleader = ","
