@@ -22,6 +22,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'lifepillar/vim-solarized8'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -81,11 +82,8 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
+set noshowmode
 set laststatus=2
-set statusline=%f%m%r%h%w
-set statusline+=\ [%{&ff}]
-set statusline+=%=
-set statusline+=[%l/%L:%04v]
 
 if has('mouse')
   set mouse=a
@@ -173,6 +171,18 @@ nnoremap <leader>gs :Git<CR>
 nnoremap <leader>ga :Git add %:p<CR>
 nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>gp :Git push<CR>
+
+" ====== lightline ======
+let g:lightline = {
+	\ 'colorscheme': 'solarized',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead'
+  \ },
+  \ }
 
 " ====== coc.nvim ======
 set cmdheight=2
