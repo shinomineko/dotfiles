@@ -171,6 +171,7 @@ nnoremap <leader>gs :Git<CR>
 nnoremap <leader>ga :Git add %:p<CR>
 nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gb :Git blame<CR>
 
 " ====== lightline ======
 let g:lightline = {
