@@ -23,6 +23,7 @@ Plug 'elzr/vim-json'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'lifepillar/vim-solarized8'
 Plug 'itchyny/lightline.vim'
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 filetype plugin indent on
@@ -184,6 +185,9 @@ let g:lightline = {
   \   'gitbranch': 'FugitiveHead'
   \ },
   \ }
+
+" ====== vim-table-mode ======
+nnoremap <leader>tm :TableModeToggle
 
 " ====== coc.nvim ======
 set cmdheight=2
