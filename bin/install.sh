@@ -34,10 +34,10 @@ install_base() {
 	echo "Installing base packages..."
 	echo
 
-	apt update || true
-	apt upgrade -y
+	apt-get update || true
+	apt-get upgrade -y
 
-	apt install -y \
+	apt-get install -y \
 		adduser \
 		automake \
 		bash-completion \
@@ -83,9 +83,9 @@ install_base() {
 		zip \
 		--no-install-recommends
 
-	apt autoremove -y
-	apt autoclean -y
-	apt clean -y
+	apt-get autoremove -y
+	apt-get autoclean -y
+	apt-get clean -y
 }
 
 install_dot() {
@@ -119,8 +119,8 @@ install_vim() {
 	echo "deb https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 	echo "deb-src https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
 
-	sudo apt update || true
-	sudo apt install -y \
+	sudo apt-get update || true
+	sudo apt-get install -y \
 		nodejs \
 		--no-install-recommends
 
@@ -197,7 +197,7 @@ install_tools() {
 		curl -Lo "$HOME/.local/bin/kubectl" --create-dirs "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 		chmod a+x "$HOME/.local/bin/kubectl"
 	else
-		sudo apt update || true
+		sudo apt-get update || true
 		sudo apt-get install -y kubectl --no-install-recommends
 	fi
 
