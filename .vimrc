@@ -177,7 +177,7 @@ nnoremap <leader>gb :Git blame<CR>
 
 " ====== lightline ======
 let g:lightline = {
-	\ 'colorscheme': 'solarized',
+  \ 'colorscheme': 'solarized',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
