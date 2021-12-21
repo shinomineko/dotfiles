@@ -7,7 +7,7 @@
 this will create a bunch of symlinks from this repo to your home directory
 
 ```console
-$ make
+make
 ```
 
 ### run the tests
@@ -15,7 +15,7 @@ $ make
 the tests run in a container
 
 ```console
-$ make test
+make test
 ```
 
 ### run the install script
@@ -23,7 +23,7 @@ $ make test
 use it at your own risk
 
 ```console
-$ curl -sSLO https://raw.githubusercontent.com/shinomineko/dotfiles/master/bin/install.sh
-$ chmod +x install.sh
-$ ./install.sh
+curl -sSLO https://raw.githubusercontent.com/shinomineko/dotfiles/master/bin/install.sh
+chmod +x install.sh
+./install.sh
 ```
