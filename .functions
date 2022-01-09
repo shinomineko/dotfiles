@@ -3,7 +3,7 @@
 # side-by-side diff, use delta if available
 dif() {
 	if hash delta 2>/dev/null; then
-		delta -s "$@"
+		delta -s --light "$@"
 	else
 		diff -y --width="$COLUMNS" "$@" | less -FRNX
 	fi
