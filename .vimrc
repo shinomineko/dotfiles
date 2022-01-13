@@ -25,6 +25,7 @@ Plug 'wgwoods/vim-systemd-syntax'
 Plug 'lifepillar/vim-solarized8'
 Plug 'itchyny/lightline.vim'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'google/vim-jsonnet'
 call plug#end()
 
 filetype plugin indent on

@@ -179,6 +179,19 @@ install_golang() {
 	)
 }
 
+_install_tool() {
+	local tool="$1"
+	local url="$2"
+
+	echo
+	echo "Installing ${tool}..."
+	echo
+
+	sudo curl -Lo "/usr/local/bin/${tool}" "$url"
+	sudo chown root:root "/usr/local/bin/${tool}"
+	sudo chmod a+x "/usr/local/bin/${tool}"
+}
+
 install_tools() {
 	echo
 	echo "Installing fzf..."
@@ -201,29 +214,10 @@ install_tools() {
 		sudo apt-get install -y kubectl --no-install-recommends
 	fi
 
-	echo
-	echo "Installing kind..."
-	echo
 
-	sudo curl -Lo /usr/local/bin/kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
-	sudo chown root:root /usr/local/bin/kind
-	sudo chmod a+x /usr/local/bin/kind
-
-	echo
-	echo "Installing stern..."
-	echo
-
-	sudo curl -Lo /usr/local/bin/stern https://github.com/wercker/stern/releases/latest/download/stern_linux_amd64
-	sudo chown root:root /usr/local/bin/stern
-	sudo chmod a+x /usr/local/bin/stern
-
-	echo
-	echo "Installing hostess..."
-	echo
-
-	sudo curl -Lo /usr/local/bin/hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
-	sudo chown root:root /usr/local/bin/hostess
-	sudo chmod a+x /usr/local/bin/hostess
+	_install_tool kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
+	_install_tool stern https://github.com/wercker/stern/releases/latest/download/stern_linux_amd64
+	_install_tool hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
 }
 
 usage() {
