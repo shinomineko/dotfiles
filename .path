@@ -9,5 +9,7 @@ PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
 
 CDPATH="$CDPATH:$HOME/src/gh:$GOPATH/src/github.com:$GOPATH/src"
 
+PATH="$HOME/.krew/bin:$PATH"
+
 export PATH
 export CDPATH
