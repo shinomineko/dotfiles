@@ -10,6 +10,8 @@
 	df = diff
 	lg = log --oneline -n 20 --graph --abbrev-commit
 	sw = switch
+	undo = !git reset HEAD~1 --mixed
+	amend = !git commit --amend --no-edit
 
 [color]
 	ui = auto
