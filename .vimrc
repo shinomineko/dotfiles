@@ -4,13 +4,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-gitgutter'
-Plug 'mg979/vim-visual-multi'
 Plug 'chr4/nginx.vim'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -155,26 +153,6 @@ let g:vim_json_syntax_conceal = 0
 
 " ====== vim-terraform ======
 let g:terraform_fmt_on_save = 1
-
-" ====== vim-go ======
-let g:go_fmt_autosave = 1
-let g:go_fmt_command = 'goimports'
-
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-
-" ====== vim-visual-multi ======
-let g:VM_maps = {}
-let g:VM_maps['Find Under'] = '<C-i>'
-let g:VM_maps['Exit'] = '<Esc>'
-
-" ====== vim-fugitive ======
-nnoremap <leader>gs :Git<CR>
-nnoremap <leader>ga :Git add %:p<CR>
-nnoremap <leader>gc :Git commit<CR>
-nnoremap <leader>gp :Git push<CR>
-nnoremap <leader>gb :Git blame<CR>
 
 " ====== lightline ======
 let g:lightline = {
