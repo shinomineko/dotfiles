@@ -17,6 +17,7 @@
 	ui = auto
 
 [core]
+	editor = $EDITOR
 	excludesFile = ~/.gitignore
 
 [commit]
