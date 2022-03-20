@@ -137,7 +137,7 @@ install_vim() {
 
 install_golang() {
 	echo
-	echo "Installing golang and packages..."
+	echo "Installing golang..."
 	echo
 
 	export GO_VERSION
@@ -158,24 +158,6 @@ install_golang() {
 	(
 	kernel=$(uname -s | tr '[:upper:]' '[:lower:]')
 	curl -sSL "https://storage.googleapis.com/golang/go${GO_VERSION}.${kernel}-amd64.tar.gz" | sudo tar -zxv -C /usr/local
-	)
-
-	(
-	set -x
-	set +e
-
-	go get golang.org/x/lint/golint
-	go get golang.org/x/tools/cmd/cover
-	go get golang.org/x/tools/gopls
-	go get golang.org/x/review/git-codereview
-	go get golang.org/x/tools/cmd/goimports
-	go get golang.org/x/tools/cmd/gorename
-	go get golang.org/x/tools/cmd/guru
-	go get github.com/axw/gocov/gocov
-	go get github.com/jstemmer/gotags
-	go get github.com/nsf/gocode
-	go get github.com/rogpeppe/godef
-	go get honnef.co/go/tools/cmd/staticcheck
 	)
 }
 
@@ -228,7 +210,7 @@ usage() {
 	echo " dot              - install dotfiles"
 	echo " vim              - install vim plugins"
 	echo " tools            - install cli tools"
-	echo " golang           - install golang and packages"
+	echo " golang           - install golang"
 }
 
 main() {
