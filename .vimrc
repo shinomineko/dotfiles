@@ -30,7 +30,8 @@ filetype plugin indent on
 syntax on
 set background=light
 set termguicolors
-silent! colorscheme solarized8_flat
+silent! colorscheme solarized8
+let g:solarized_italics = 0
 
 let mapleader = ","
 let g:mapleader = ","
