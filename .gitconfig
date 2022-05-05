@@ -1,7 +1,3 @@
-[user]
-	name = ***REMOVED***
-	email = sc@shinomin.me
-
 [alias]
 	st = status
 	ci = commit
@@ -23,6 +19,9 @@
 [commit]
 	gpgSign = true
 
+[init]
+	defaultBranch = main
+
 [pull]
 	rebase = true
 	default = current
@@ -30,17 +29,9 @@
 [push]
 	default = current
 
-[init]
-	defaultBranch = main
+[user]
+	name = ***REMOVED***
+	email = sc@shinomin.me
 
-[github]
-	user = shinomineko
-
-[url "git@github.com:shinomineko/"]
-	insteadOf = "https://github.com/shinomineko/"
-
-[url "git@gitlab.com:shinomineko/"]
-	insteadOf = "https://gitlab.com/shinomineko/"
-
-[includeIf "gitdir:~/src/work/"]
-	path = ~/src/work/git/config
+[include]
+	path = ~/.gitconfig.inc
