@@ -100,13 +100,6 @@ nmap() {
 		shinomineko/nmap "$@"
 }
 
-skopeo() {
-	docker run -it --rm \
-		--log-driver none \
-		-v "$(pwd):/data" \
-		shinomineko/skopeo "$@"
-}
-
 squid() {
 	rm_stopped squid
 	docker run -d \
