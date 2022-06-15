@@ -9,7 +9,8 @@ __prompt() {
 }
 
 __prompt_hostname() {
-	typeset short_hostname=$(hostname)
+	declare short_hostname
+	short_hostname=$(hostname)
 	printf "%s" "${short_hostname%%.*}"
 }
 
