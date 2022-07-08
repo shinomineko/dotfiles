@@ -52,6 +52,12 @@ if hash kubectl 2>/dev/null; then
 	source <(kubectl completion bash)
 fi
 
+# source helm bash completion
+if hash helm 2>/dev/null; then
+	# shellcheck source=/dev/null
+	source <(helm completion bash)
+fi
+
 
 for file in $HOME/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports,fzf.bash}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
