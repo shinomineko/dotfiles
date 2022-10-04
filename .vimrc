@@ -28,7 +28,7 @@ call plug#end()
 
 filetype plugin indent on
 syntax on
-set background=dark
+set background=light
 set termguicolors
 silent! colorscheme solarized8
 let g:solarized_italics = 0
