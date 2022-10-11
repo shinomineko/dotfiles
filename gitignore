@@ -15,6 +15,7 @@ out/
 
 .terraform
 *.tfstate*
+*.lock.hcl
 
 stdout
 *logs*
