@@ -66,3 +66,9 @@ for file in $HOME/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports,
 	fi
 done
 unset file
+
+
+if hash direnv 2>/dev/null; then
+	# shell source=/dev/null
+	eval "$(direnv hook bash)"
+fi
