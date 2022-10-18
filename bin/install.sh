@@ -46,6 +46,7 @@ install_base() {
 		ca-certificates \
 		coreutils \
 		curl \
+		direnv \
 		dnsutils \
 		file \
 		findutils \
