@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # side-by-side diff, use delta if available
 dif() {

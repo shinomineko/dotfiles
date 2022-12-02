@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # if not running interactively, don't do anything
 case "$-" in

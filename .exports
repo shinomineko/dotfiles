@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 shell="$(which bash)"
 export SHELL="$shell"
