@@ -25,15 +25,15 @@ alias untar="tar -xvf"
 alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias bscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
-if hash nvim 2>/dev/null; then
+if has nvim; then
 	alias vim="nvim"
 fi
 
-if hash podman 2>/dev/null && ! hash docker 2>/dev/null; then
+if has podman && ! has docker; then
 	alias docker="podman"
 fi
 
-if hash kubectl 2>/dev/null; then
+if has kubectl; then
 	alias k="kubectl"
 	complete -F __start_kubectl k
 fi

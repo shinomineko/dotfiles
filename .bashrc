@@ -13,6 +13,11 @@ shopt -s autocd
 shopt -s globstar
 shopt -s histappend
 
+# return exit code 0 if command exists
+has() {
+	hash "$1" &>/dev/null
+}
+
 
 ## COMPLETION
 
@@ -39,25 +44,12 @@ fi
 
 ## GPG
 
-if hash gpg-connect-agent 2>/dev/null; then
+if has gpg-connect-agent; then
 	gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
 GPG_TTY=$(tty)
 export GPG_TTY
-
-# source kubectl bash completion
-if hash kubectl 2>/dev/null; then
-	# shellcheck source=/dev/null
-	source <(kubectl completion bash)
-fi
-
-# source helm bash completion
-if hash helm 2>/dev/null; then
-	# shellcheck source=/dev/null
-	source <(helm completion bash)
-fi
-
 
 for file in $HOME/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports,fzf.bash}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
@@ -67,8 +59,19 @@ for file in $HOME/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports,
 done
 unset file
 
+# source kubectl bash completion
+if has kubectl; then
+	# shellcheck source=/dev/null
+	source <(kubectl completion bash)
+fi
 
-if hash direnv 2>/dev/null; then
+# source helm bash completion
+if has helm; then
+	# shellcheck source=/dev/null
+	source <(helm completion bash)
+fi
+
+if has direnv; then
 	# shell source=/dev/null
 	eval "$(direnv hook bash)"
 fi
