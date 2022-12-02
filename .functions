@@ -2,7 +2,7 @@
 
 # side-by-side diff, use delta if available
 dif() {
-	if hash delta 2>/dev/null; then
+	if has delta; then
 		delta -s --light "$@"
 	else
 		diff -y --width="$COLUMNS" "$@" | less -FRNX
@@ -31,14 +31,14 @@ targz() {
 	local tmpfile="${1%/}.tar"
 	tar -cvf "$tmpfile" --exclude=".DS_store" "${1}" || return 1
 
-	size=$(stat -c"%s" "${tmpfile}" 2>/dev/null)
+	size=$(stat -c"%s" "${tmpfile}")
 
 	local cmd
-	if (( size < 52428800 )) && hash zopfli 2>/dev/null; then
+	if (( size < 52428800 )) && has zopfli; then
 		# use `zopfli` if the .tar file is smaller then 50MB and zopfli is available
 		cmd="zopfli"
 	else
-		if hash pigz 2>/dev/null; then
+		if has pigz; then
 			cmd="pigz"
 		else
 			cmd="gzip"
@@ -60,4 +60,9 @@ tre() {
 twitch() {
 	local channel="$1"
 	streamlink --player mpv twitch.tv/"$channel" best
+}
+
+# rg with a pager
+rg() {
+	command rg -p "$@" | less -FRX
 }
