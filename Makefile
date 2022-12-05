@@ -20,7 +20,6 @@ dot: ## install dotfiles
 	ln -sfn $(CURDIR)/gitignore $(HOME)/.gitignore
 
 	mkdir -p $(HOME)/.vim $(HOME)/.config
-	ln -sfn $(CURDIR)/coc-settings.json $(HOME)/.vim/coc-settings.json
 	ln -sfn $(CURDIR)/.config/nvim $(HOME)/.config/nvim
 
 	ln -sfn $(CURDIR)/.config/aria2 $(HOME)/.config/aria2

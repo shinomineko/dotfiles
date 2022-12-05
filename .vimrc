@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -166,23 +165,5 @@ let g:lightline = {
 
 " ====== vim-table-mode ======
 nnoremap <leader>tm :TableModeToggle
-
-" ====== coc.nvim ======
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
-
-" note: use ':verbose imap <tab>' to make sure tab is not mapped by other plugin
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 " vim:ts=2:sw=2:et

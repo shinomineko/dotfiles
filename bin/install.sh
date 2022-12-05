@@ -113,18 +113,6 @@ install_vim() {
 	echo "Installing vim stuff..."
 	echo
 
-	# install node, needed for coc.nvim
-	curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-	VERSION=node_14.x
-	DISTRO="$(lsb_release -s -c)"
-	echo "deb https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-	echo "deb-src https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
-
-	sudo apt-get update || true
-	sudo apt-get install -y \
-		nodejs \
-		--no-install-recommends
-
 	curl -Lo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	vim +PlugInstall +PlugClean! +qall
