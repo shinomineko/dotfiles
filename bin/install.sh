@@ -187,7 +187,6 @@ install_tools() {
 
 
 	_install_tool kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
-	_install_tool hostess https://github.com/cbednarski/hostess/releases/latest/download/hostess_linux_amd64
 	_install_tool yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
 }
 

@@ -107,7 +107,7 @@ squid() {
 		-p 3128:3128 \
 		shinomineko/squid "$@"
 
-	sudo hostess add squid "$(docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' squid)"
+	echo "squid container ip: $(docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' squid)"
 }
 
 torproxy() {
@@ -119,7 +119,7 @@ torproxy() {
 		-p 9050:9050 \
 		shinomineko/torproxy
 
-	sudo hostess add torproxy "$(docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' torproxy)"
+	echo "torproxy container ip: $(docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' torproxy)"
 }
 
 transmission() {
