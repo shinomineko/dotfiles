@@ -61,6 +61,7 @@ install_base() {
 		indent \
 		iptables \
 		jq \
+		kubectl \
 		less \
 		libc6-dev \
 		locales \
@@ -150,19 +151,6 @@ install_golang() {
 	)
 }
 
-_install_tool() {
-	local tool="$1"
-	local url="$2"
-
-	echo
-	echo "Installing ${tool}..."
-	echo
-
-	sudo curl -Lo "/usr/local/bin/${tool}" "$url"
-	sudo chown root:root "/usr/local/bin/${tool}"
-	sudo chmod a+x "/usr/local/bin/${tool}"
-}
-
 install_tools() {
 	echo
 	echo "Installing fzf..."
@@ -174,20 +162,17 @@ install_tools() {
 	"$HOME/.fzf/install" "${FZF_OPTS[@]}"
 
 	echo
-	echo "Installing kubectl..."
+	echo "Installing go cli tools..."
 	echo
 
-	if [[ -h /usr/local/bin/kubectl ]]; then      # docker desktop has its own kubectl, but not the latest
-		curl -Lo "$HOME/.local/bin/kubectl" --create-dirs "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-		chmod a+x "$HOME/.local/bin/kubectl"
+	if hash go &>/dev/null; then
+		go install github.com/mikefarah/yq/v4@latest
+		go install sigs.k8s.io/kind@latest
+		go install github.com/yannh/kubeconform/cmd/kubeconform@latest
+		go install github.com/open-policy-agent/conftest@latest
 	else
-		sudo apt-get update || true
-		sudo apt-get install -y kubectl --no-install-recommends
+		echo "go is not installed. Skipping..."
 	fi
-
-
-	_install_tool kind https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
-	_install_tool yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
 }
 
 usage() {
@@ -197,7 +182,7 @@ usage() {
 	echo " dot              - install dotfiles"
 	echo " vim              - install vim plugins"
 	echo " tools            - install cli tools"
-	echo " golang           - install golang"
+	echo " golang           - install/upgrade golang"
 }
 
 main() {

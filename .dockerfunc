@@ -61,12 +61,6 @@ aws() {
 		amazon/aws-cli "$@"
 }
 
-conftest() {
-	docker run -it --rm \
-		-v "$(pwd):/project" \
-		openpolicyagent/conftest "$@"
-}
-
 dive() {
 	docker run -it --rm \
 		-v /var/run/docker.sock:/var/run/docker.sock \
