@@ -65,12 +65,6 @@ if has kubectl; then
 	source <(kubectl completion bash)
 fi
 
-# source helm bash completion
-if has helm; then
-	# shellcheck source=/dev/null
-	source <(helm completion bash)
-fi
-
 if has direnv; then
 	# shell source=/dev/null
 	eval "$(direnv hook bash)"
