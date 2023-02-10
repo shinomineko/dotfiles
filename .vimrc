@@ -22,12 +22,14 @@ Plug 'wgwoods/vim-systemd-syntax'
 Plug 'itchyny/lightline.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'google/vim-jsonnet'
+Plug 'camgunz/amber'
 call plug#end()
 
 filetype plugin indent on
 syntax on
-set background=light
+set background=dark
 set termguicolors
+silent! colorscheme amber
 
 let mapleader = ","
 let g:mapleader = ","
@@ -153,14 +155,11 @@ let g:terraform_fmt_on_save = 1
 
 " ====== lightline ======
 let g:lightline = {
-  \ 'colorscheme': 'solarized',
+  \ 'colorscheme': '16color',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'FugitiveHead'
-  \ },
+  \ }
   \ }
 
 " ====== vim-table-mode ======
