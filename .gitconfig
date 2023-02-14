@@ -19,6 +19,9 @@
 [commit]
 	gpgSign = true
 
+[gpg]
+	format = ssh
+
 [init]
 	defaultBranch = main
 
@@ -32,6 +35,7 @@
 [user]
 	name = ***REMOVED***
 	email = sc@shinomin.me
+	signingKey = ~/.ssh/id_ed25519.pub
 
 [include]
 	path = ~/.gitconfig.inc
