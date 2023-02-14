@@ -22,14 +22,12 @@ Plug 'wgwoods/vim-systemd-syntax'
 Plug 'itchyny/lightline.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'google/vim-jsonnet'
-Plug 'camgunz/amber'
 call plug#end()
 
 filetype plugin indent on
 syntax on
-set background=dark
-set termguicolors
-silent! colorscheme amber
+set background=light
+" set termguicolors
 
 let mapleader = ","
 let g:mapleader = ","
