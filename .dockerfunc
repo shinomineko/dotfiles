@@ -42,13 +42,6 @@ rmc() {
 	docker rm -f "$@" 2>/dev/null || true
 }
 
-aria2() {
-	docker run -it --rm \
-		-v "${DOWNLOADDIR:-$HOME/Downloads}:/aria2/download" \
-		-v "${HOME}/.config/aria2/aria2.conf:/root/.config/aria2/aria2.conf" \
-		shinomineko/aria2 "$@"
-}
-
 aws() {
 	docker run -it --rm \
 		--name aws \
@@ -67,25 +60,10 @@ dive() {
 		wagoodman/dive "$@"
 }
 
-htpasswd() {
-	docker run -it --rm \
-		--name htpasswd \
-		--net none \
-		--log-driver none \
-		shinomineko/htpasswd "$@"
-}
-
 http() {
 	docker run -t --rm \
 		--log-driver none \
 		shinomineko/httpie "$@"
-}
-
-nc() {
-	docker run -it --rm \
-		--net host \
-		--entrypoint nc \
-		shinomineko/toolbox "$@"
 }
 
 nmap() {
@@ -114,24 +92,4 @@ torproxy() {
 		shinomineko/torproxy
 
 	echo "torproxy container ip: $(docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' torproxy)"
-}
-
-transmission() {
-	rm_stopped transmission
-	docker run -d \
-		--name transmission \
-		-v /etc/localtime:/etc/localtime:ro \
-		-v "${TORRENTSDIR:-$HOME/Torrents}:/transmission/download" \
-		-v "${HOME}/.transmission:/transmission/config" \
-		-p 9091:9091 \
-		-p 51413:51413 \
-		-p 51413:51413/udp \
-		shinomineko/transmission
-}
-
-trivy() {
-	docker run -t --rm \
-		-v /var/run/docker.sock:/var/run/docker.sock \
-		-v "${HOME}/.cache:/root/.cache" \
-		aquasec/trivy "$@" | less -FRX
 }
