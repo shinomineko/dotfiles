@@ -170,6 +170,7 @@ install_tools() {
 		go install sigs.k8s.io/kind@latest
 		go install github.com/yannh/kubeconform/cmd/kubeconform@latest
 		go install github.com/open-policy-agent/conftest@latest
+		go install github.com/google/go-containerregistry/cmd/crane@latest
 	else
 		echo "go is not installed. Skipping..."
 	fi
