@@ -149,6 +149,8 @@ install_golang() {
 	kernel=$(uname -s | tr '[:upper:]' '[:lower:]')
 	curl -sSL "https://storage.googleapis.com/golang/go${GO_VERSION}.${kernel}-amd64.tar.gz" | sudo tar -zxv -C /usr/local
 	)
+
+	_install_go_tools
 }
 
 install_tools() {
@@ -161,6 +163,10 @@ install_tools() {
 	FZF_OPTS=(--key-bindings --no-completion --no-update-rc --no-zsh --no-fish)
 	"$HOME/.fzf/install" "${FZF_OPTS[@]}"
 
+	_install_go_tools
+}
+
+_install_go_tools() {
 	echo
 	echo "Installing go cli tools..."
 	echo
