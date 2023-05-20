@@ -7,6 +7,6 @@ PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/.go"
 PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
 
-PATH="$HOME/.krew/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH
