@@ -26,7 +26,7 @@ call plug#end()
 
 filetype plugin indent on
 syntax on
-set background=light
+set background=dark
 " set termguicolors
 
 let mapleader = ","
