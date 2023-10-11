@@ -60,12 +60,6 @@ dive() {
 		wagoodman/dive "$@"
 }
 
-http() {
-	docker run -t --rm \
-		--log-driver none \
-		shinomineko/httpie "$@"
-}
-
 nmap() {
 	docker run -it --rm \
 		--net host \
