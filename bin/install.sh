@@ -20,10 +20,6 @@ setup_sources() {
 		lsb-release \
 		--no-install-recommends
 
-	curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-
-	echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
-
 	# turn off translations
 	mkdir -p /etc/apt/apt.conf.d
 	echo 'Acquire::Languages "none";' | tee /etc/apt/apt.conf.d/99translations
@@ -61,7 +57,6 @@ install_base() {
 		indent \
 		iptables \
 		jq \
-		kubectl \
 		less \
 		libc6-dev \
 		locales \
@@ -162,6 +157,13 @@ install_tools() {
 	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
 	FZF_OPTS=(--key-bindings --no-completion --no-update-rc --no-zsh --no-fish)
 	"$HOME/.fzf/install" "${FZF_OPTS[@]}"
+
+	echo
+	echo "Installing kubectl..."
+	echo
+
+	curl -Lo "$HOME/.local/bin/kubectl" "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+	chmod a+x "$HOME/.local/bin/kubectl"
 
 	_install_go_tools
 }
