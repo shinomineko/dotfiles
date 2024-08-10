@@ -126,7 +126,7 @@ install_golang() {
 	echo
 
 	export GO_VERSION
-	GO_VERSION=$(curl -sSL "https://golang.org/VERSION?m=text")
+	GO_VERSION=$(curl -sSL "https://golang.org/VERSION?m=text" | grep -v "time")
 	export GO_SRC=/usr/local/go
 
 	if [[ -n "$1" ]]; then
