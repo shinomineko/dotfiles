@@ -64,7 +64,7 @@ set nocursorcolumn
 set nocursorline
 
 set wrap
-set textwidth=100
+set textwidth=0
 set formatoptions=qrn1
 
 set conceallevel=0
