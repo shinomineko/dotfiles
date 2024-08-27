@@ -112,18 +112,6 @@ set wildignore+=*.pyc
 set wildignore+=*.orig
 set wildignore+=*.so
 
-" ====== file type settings ======
-au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4 sts=4
-au BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
-au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
-au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
-au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-au BufNewFile,BufRead *.py setlocal expandtab ts=4 sw=4 sts=4
-au FileType sh,gitconfig,toml set noet
-au FileType dockerfile set noet
-au BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
-au FileType nginx setlocal noet ts=4 sw=4 sts=4
-
 " ====== ctrlp ======
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
