@@ -9,9 +9,10 @@ Thumbs.db
 .envrc
 .idea/
 .vagrant/
+.vscode/
+.flox/
 cache/
 out/
-.vscode/
 
 .terraform
 *.tfstate*
