@@ -22,6 +22,7 @@ Plug 'wgwoods/vim-systemd-syntax'
 Plug 'itchyny/lightline.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'google/vim-jsonnet'
+Plug 'timakro/vim-yadi'
 call plug#end()
 
 filetype plugin indent on
@@ -69,12 +70,12 @@ set formatoptions=qrn1
 
 set conceallevel=0
 
-set autoindent
-set smartindent
+autocmd BufRead * DetectIndent
+set expandtab
 set smarttab
-set tabstop=2
-set shiftwidth=2
-set noexpandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 set notimeout
 set ttimeout
