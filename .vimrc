@@ -25,6 +25,7 @@ Plug 'google/vim-jsonnet'
 Plug 'timakro/vim-yadi'
 call plug#end()
 
+autocmd BufRead * DetectIndent
 filetype plugin indent on
 syntax on
 set background=dark
@@ -42,6 +43,12 @@ nnoremap N Nzzzv
 
 nnoremap <leader><space> :nohlsearch<CR>
 nmap <leader>w :w!<CR>
+
+set expandtab
+set smarttab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 set noerrorbells
 set encoding=utf-8
@@ -69,13 +76,6 @@ set textwidth=0
 set formatoptions=qrn1
 
 set conceallevel=0
-
-autocmd BufRead * DetectIndent
-set expandtab
-set smarttab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 
 set notimeout
 set ttimeout
