@@ -4,6 +4,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
@@ -145,8 +146,14 @@ let g:lightline = {
   \ 'colorscheme': '16color',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-  \ }
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'indentstyle' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead'
+  \ },
+  \ 'component': {
+  \   'indentstyle': '%{&expandtab?shiftwidth()." sp":"tabs"}'
+  \ },
   \ }
 
 " ====== vim-table-mode ======
