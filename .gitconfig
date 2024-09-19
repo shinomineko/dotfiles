@@ -33,7 +33,7 @@
 	default = current
 
 [user]
-	name = ***REMOVED***
+	name = shinomineko
 	email = sc@shinomin.me
 	signingKey = ~/.ssh/id_ed25519.pub
 
