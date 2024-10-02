@@ -1,5 +1,3 @@
-#!/usr/bin/env fish
-
 alias vim="nvim"
 alias untar="tar -zvf"
 
