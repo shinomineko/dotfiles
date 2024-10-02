@@ -1,5 +1,8 @@
-alias vim="nvim"
+alias bscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias bsshpass="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o PreferredAuthentications=password"
 alias untar="tar -zvf"
+alias vim="nvim"
 
 abbr --add --global k kubectl
 
