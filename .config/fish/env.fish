@@ -1,5 +1,3 @@
-#!/usr/bin/env fish
-
 set -Ux EDITOR vim
 set -Ux VISUAL vim
 

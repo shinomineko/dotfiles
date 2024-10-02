@@ -24,6 +24,12 @@ dot: ## install dotfiles
 
 	ln -sfn $(CURDIR)/.config/aria2 $(HOME)/.config/aria2
 
+	mkdir -p $(HOME)/.config/fish
+	for file in $(shell find $(CURDIR)/.config/fish -name "*.fish" -type f); do \
+		f=$$(basename $$file); \
+		ln -sfn $$file $(HOME)/.config/fish/$$f; \
+	done; \
+
 	gpg --list-keys || true;
 	mkdir -p $(HOME)/.gnupg
 	for file in $(shell find $(CURDIR)/.gnupg -type f); do \
