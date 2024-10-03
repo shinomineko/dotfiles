@@ -7,6 +7,10 @@ alias vim="nvim"
 abbr --add --global dc "docker compose"
 abbr --add --global k kubectl
 
+function fish_reload
+    source ~/.config/fish/config.fish
+end
+
 function dif
     if type -q delta
         delta -s $argv
