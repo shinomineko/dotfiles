@@ -4,6 +4,7 @@ alias bsshpass="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 
 alias untar="tar -xvf"
 alias vim="nvim"
 
+abbr --add --global dc "docker compose"
 abbr --add --global k kubectl
 
 function dif
