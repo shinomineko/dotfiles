@@ -1,11 +1,11 @@
-alias bscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-alias bssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-alias bsshpass="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o PreferredAuthentications=password"
-alias untar="tar -xvf"
 alias vim="nvim"
 
+abbr --add --global bscp "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+abbr --add --global bssh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+abbr --add --global bsshpass "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o PreferredAuthentications=password"
 abbr --add --global dc "docker compose"
 abbr --add --global k kubectl
+abbr --add --global untar "tar -xvf"
 
 function fish_reload
     source ~/.config/fish/config.fish
