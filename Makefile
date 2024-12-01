@@ -22,6 +22,9 @@ dot: ## install dotfiles
 	mkdir -p $(HOME)/.vim $(HOME)/.config
 	ln -sfn $(CURDIR)/.config/nvim $(HOME)/.config/nvim
 
+	mkdir -p $(HOME)/.config
+	ln -sfn $(CURDIR)/.config/helix $(HOME)/.config/helix
+
 	ln -sfn $(CURDIR)/.config/aria2 $(HOME)/.config/aria2
 
 	mkdir -p $(HOME)/.config/fish
