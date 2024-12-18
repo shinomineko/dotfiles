@@ -8,3 +8,17 @@ formatter = { command = "shfmt", args = ["-i", "4"] }
 name = "go"
 auto-format = true
 formatter = { command = "goimports" }
+
+[[language]]
+name = "hcl"
+language-servers = [ "terraform-ls" ]
+language-id = "terraform"
+
+[[language]]
+name = "tfvars"
+language-servers = [ "terraform-ls" ]
+language-id = "terraform-vars"
+
+[language-server.terraform-ls]
+command = "terraform-ls"
+args = ["serve"]
