@@ -33,13 +33,6 @@ dot: ## install dotfiles
 		ln -sfn $$file $(HOME)/.config/fish/$$f; \
 	done; \
 
-	gpg --list-keys || true;
-	mkdir -p $(HOME)/.gnupg
-	for file in $(shell find $(CURDIR)/.gnupg -type f); do \
-		f=$$(basename $$file); \
-		ln -sfn $$file $(HOME)/.gnupg/$$f; \
-	done; \
-
 .PHONY: etc
 etc:  ## install the etc directory files
 	mkdir -p $(HOME)/.ssh/config.d
