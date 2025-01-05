@@ -7,3 +7,6 @@ right = ["diagnostics", "selections", "register", "position", "file-encoding", "
 
 [editor.soft-wrap]
 enable = true
+
+[editor.indent-guides]
+render = true
