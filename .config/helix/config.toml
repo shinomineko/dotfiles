@@ -1,5 +1,6 @@
 [editor]
 line-number = "relative"
+insert-final-newline = true
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name", "read-only-indicator", "file-modification-indicator"]
