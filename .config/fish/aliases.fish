@@ -35,7 +35,7 @@ function tmpd
 end
 
 function tre
-    tree -aC -I '.git' --dirsfirst $argv | less -FRX
+    tree -aC -I '.git' -I '.flox' --dirsfirst $argv | less -FRX
 end
 
 function aws
