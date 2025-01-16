@@ -1,0 +1,9 @@
+theme = "GruvboxDark"
+font-family = "Inconsolata"
+font-thicken = true
+font-size = 16
+
+term = "xterm-256color"
+
+clipboard-paste-protection = true
+copy-on-select = true

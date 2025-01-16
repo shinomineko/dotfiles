@@ -104,22 +104,6 @@ install_dot() {
     )
 }
 
-install_vim() {
-    echo
-    echo "Installing vim stuff..."
-    echo
-
-    curl -Lo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    vim +PlugInstall +PlugClean! +qall
-
-    # update alternatives to vim
-    sudo update-alternatives --install /usr/bin/vi vi "$(command -v vim)" 60
-    sudo update-alternatives --config vi
-    sudo update-alternatives --install /usr/bin/editor editor "$(command -v vim)" 60
-    sudo update-alternatives --config editor
-}
-
 install_golang() {
     echo
     echo "Installing golang..."
@@ -190,7 +174,6 @@ usage() {
     echo "Usage: install.sh <command>"
     echo " base             - install base packages"
     echo " dot              - install dotfiles"
-    echo " vim              - install vim plugins"
     echo " tools            - install cli tools"
     echo " golang           - install/upgrade golang"
 }
@@ -206,9 +189,6 @@ main() {
         ;;
     dot)
         install_dot
-        ;;
-    vim)
-        install_vim
         ;;
     golang)
         install_golang "$2"

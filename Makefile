@@ -19,13 +19,10 @@ dot: ## install dotfiles
 
 	ln -sfn $(CURDIR)/gitignore $(HOME)/.gitignore
 
-	mkdir -p $(HOME)/.vim $(HOME)/.config
-	ln -sfn $(CURDIR)/.config/nvim $(HOME)/.config/nvim
-
 	mkdir -p $(HOME)/.config
-	ln -sfn $(CURDIR)/.config/helix $(HOME)/.config/helix
-
-	ln -sfn $(CURDIR)/.config/aria2 $(HOME)/.config/aria2
+	for prg in helix ghostty; do \
+		ln -sfn $(CURDIR)/.config/$$prg $(HOME)/.config/$$prg; \
+	done; \
 
 	mkdir -p $(HOME)/.config/fish
 	for file in $(shell find $(CURDIR)/.config/fish -name "*.fish" -type f); do \
