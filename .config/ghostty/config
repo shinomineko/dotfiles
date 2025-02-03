@@ -1,7 +1,8 @@
 theme = "GruvboxDark"
-font-family = "Inconsolata"
+font-family = "Ark Pixel 16px Monospaced latin"
 font-thicken = true
 font-size = 16
+font-synthetic-style = false
 
 term = "xterm-256color"
 
