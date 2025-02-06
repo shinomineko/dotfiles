@@ -1,5 +1,3 @@
-alias vim="nvim"
-
 abbr --add --global bscp "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 abbr --add --global bssh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 abbr --add --global bsshpass "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o PreferredAuthentications=password"

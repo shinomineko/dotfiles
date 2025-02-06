@@ -1,5 +1,3 @@
-# set -Ux EDITOR vim
-# set -Ux VISUAL vim
 set -Ux EDITOR hx
 set -Ux VISUAL hx
 set -gx LC_ALL en_US.UTF-8
