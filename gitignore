@@ -9,6 +9,7 @@ Thumbs.db
 .envrc
 .idea/
 .vagrant/
+.flox/
 cache/
 out/
 
