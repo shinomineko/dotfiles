@@ -1,2 +1,0 @@
-Include ~/.ssh/config.d/*
-Include ~/.dotfiles/etc/ssh/config.d/*

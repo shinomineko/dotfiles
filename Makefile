@@ -1,14 +1,7 @@
 SHELL := bash
 
 .PHONY: all
-all: bin dot etc
-
-.PHONY: bin
-bin: ## install the bin directory files
-	for file in $(shell find $(CURDIR)/bin -not -name ".*.swp" -type f); do \
-		f=$$(basename $$file); \
-		sudo ln -sfn $$file /usr/local/bin/$$f; \
-	done
+all: dot
 
 .PHONY: dot
 dot: ## install dotfiles
@@ -29,19 +22,6 @@ dot: ## install dotfiles
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/.config/fish/$$f; \
 	done; \
-
-.PHONY: etc
-etc:  ## install the etc directory files
-	mkdir -p $(HOME)/.ssh/config.d
-	ln -sfn $(CURDIR)/etc/ssh/config $(HOME)/.ssh/config
-
-	sudo ln -sfn $(CURDIR)/etc/timezone /etc/timezone
-
-# allocate a tty if running interactively
-INTERACTIVE := $(shell [ -t 0 ] && echo 1 || echo 0)
-ifeq ($(INTERACTIVE), 1)
-	DOCKERFLAGS += -t
-endif
 
 .PHONY: test
 test:  ## run all tests
