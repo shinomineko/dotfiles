@@ -7,3 +7,6 @@ font-synthetic-style = false
 term = "xterm-256color"
 
 clipboard-paste-protection = true
+
+window-height = 30
+window-width = 120
