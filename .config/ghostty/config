@@ -1,5 +1,5 @@
-theme = "GruvboxDark"
-font-family = "Ark Pixel 16px Monospaced latin"
+theme = "GruvboxLight"
+font-family = "Inconsolata"
 font-thicken = true
 font-size = 16
 font-synthetic-style = false

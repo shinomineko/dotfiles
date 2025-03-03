@@ -1,3 +1,5 @@
+theme = "gruvbox_light"
+
 [editor]
 line-number = "relative"
 insert-final-newline = true
