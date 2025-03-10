@@ -1,10 +1,9 @@
-theme = "Github-Light-Default"
-font-family = "Inconsolata"
-font-thicken = true
-font-size = 16
-font-synthetic-style = false
+theme = Github-Light-Default
+font-family = Inconsolata
+font-variation = wght=500
+font-size = 14
 
-term = "xterm-256color"
+term = xterm-256color
 
 clipboard-paste-protection = true
 
