@@ -9,3 +9,5 @@ clipboard-paste-protection = true
 
 window-height = 30
 window-width = 120
+window-padding-x = 6
+window-padding-y = 6
