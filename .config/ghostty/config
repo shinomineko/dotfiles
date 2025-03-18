@@ -1,6 +1,7 @@
 theme = Everforest Dark - Hard
 font-family = SF Mono
 font-size = 13
+font-thicken = true
 
 term = xterm-256color
 
