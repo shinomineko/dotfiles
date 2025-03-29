@@ -13,3 +13,6 @@ enable = true
 
 [editor.indent-guides]
 render = true
+
+[keys.normal.space]
+x = ":toggle whitespace.render all none"
