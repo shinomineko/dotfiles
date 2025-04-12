@@ -24,3 +24,5 @@ stdout
 *.retry
 
 *.pyc
+
+mise.local.toml
