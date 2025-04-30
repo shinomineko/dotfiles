@@ -33,16 +33,5 @@ function tmpd
 end
 
 function tre
-    tree -aC -I '.git' -I '.flox' --dirsfirst $argv | less -FRX
-end
-
-function aws
-    docker run -it --rm \
-        -v "$HOME/.aws:/root/.aws:ro" \
-        -e AWS_DEFAULT_REGION \
-        -e AWS_ACCESS_KEY_ID \
-        -e AWS_SECRET_ACCESS_KEY \
-        -e AWS_SESSION_TOKEN \
-        --log-driver none \
-        amazon/aws-cli $argv
+    tree -aC -I '.git' --dirsfirst $argv | less -FRX
 end
