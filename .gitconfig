@@ -15,9 +15,13 @@
 [core]
 	editor = $EDITOR
 	excludesFile = ~/.gitignore
+	pager = delta
 
 [commit]
 	gpgSign = true
+
+[delta]
+	navigate = true
 
 [gpg]
 	format = ssh
