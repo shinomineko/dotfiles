@@ -26,3 +26,4 @@ stdout
 *.pyc
 
 mise.local.toml
+.vscode/settings.json
