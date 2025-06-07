@@ -1,4 +1,4 @@
-theme = "rose_pine_dawn"
+theme = "base16_default"
 
 [editor]
 line-number = "relative"
