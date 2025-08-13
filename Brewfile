@@ -25,5 +25,5 @@ cask "spotify"
 
 cask "font-atkinson-hyperlegible"
 cask "font-inconsolata"
-cask "font-iosevka-term-nerd-font"
+cask "font-iosevka-ss08"
 cask "font-sf-mono"
