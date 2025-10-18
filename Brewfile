@@ -21,7 +21,6 @@ brew "zoxide"
 
 cask "1password"
 cask "ghostty"
-cask "spotify"
 
 cask "font-atkinson-hyperlegible"
 cask "font-inconsolata"
