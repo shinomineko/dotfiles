@@ -1,6 +1,6 @@
 theme = light:Rose Pine Dawn,dark:Rose Pine Moon
 
-font-family = Iosevka Term SS08
+font-family = Ioskeley Mono
 font-feature = -calt, -liga, -dlig
 font-size = 14
 font-thicken = true
