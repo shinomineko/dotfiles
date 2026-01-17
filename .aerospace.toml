@@ -1,14 +1,16 @@
 config-version = 2
 
-accordion-padding = 60
+start-at-login = true
+
+accordion-padding = 30
 
 on-focused-monitor-changed = []
 
 persistent-workspaces = []
 
 [gaps]
-inner.horizontal = 4
-inner.vertical = 4
+inner.horizontal = 2
+inner.vertical = 2
 outer.left = 0
 outer.bottom = 0
 outer.top = 0
@@ -83,3 +85,15 @@ alt-shift-l = ['join-with right', 'mode main']
 alt-shift-r = ['flatten-workspace-tree', 'mode main']
 
 alt-shift-semicolon = 'reload-config'
+
+[[on-window-detected]]
+if.app-id = 'com.tidal.desktop'
+run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.colliderli.iina'
+run = 'layout floating'
