@@ -1,8 +1,8 @@
 theme = light:Rose Pine Dawn,dark:Rose Pine Moon
 
-font-family = Ioskeley Mono
+font-family = Iosevka Charon Mono
 font-feature = -calt, -liga, -dlig
-font-size = 14
+font-size = 16
 font-thicken = true
 font-thicken-strength = 100
 
