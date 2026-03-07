@@ -87,11 +87,15 @@ alt-shift-r = ['flatten-workspace-tree', 'mode main']
 alt-shift-semicolon = 'reload-config'
 
 [[on-window-detected]]
-if.app-id = 'com.tidal.desktop'
-run = 'move-node-to-workspace 9'
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.tidal.desktop'
 run = 'layout floating'
 
 [[on-window-detected]]
