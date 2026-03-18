@@ -1,5 +1,7 @@
-set -Ux EDITOR hx
-set -Ux VISUAL hx
+set -e -U EDITOR
+set -gx EDITOR hx
+set -e -U VISUAL
+set -gx VISUAL hx
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
 
