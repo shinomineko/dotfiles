@@ -5,9 +5,6 @@ font-feature = -calt, -liga, -dlig
 font-size = 16
 font-thicken = true
 font-thicken-strength = 100
-
-term = xterm-256color
-
 clipboard-paste-protection = true
 
 window-height = 30
