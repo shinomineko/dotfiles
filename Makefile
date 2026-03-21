@@ -18,7 +18,7 @@ dot:
 	@$(LN) $(CURDIR)/gitignore $(HOME)/.gitignore
 
 	@$(MKDIR) $(HOME)/.config
-	@for prg in helix ghostty; do \
+	@for prg in helix ghostty foot; do \
 		$(LN) $(CURDIR)/.config/$$prg $(HOME)/.config/$$prg; \
 	done; \
 
