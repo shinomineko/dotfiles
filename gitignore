@@ -27,3 +27,5 @@ stdout
 
 mise.local.toml
 .vscode/settings.json
+
+.claude/
