@@ -6,6 +6,7 @@ font-size = 16
 font-thicken = true
 font-thicken-strength = 100
 clipboard-paste-protection = true
+copy-on-select = clipboard
 
 window-height = 30
 window-width = 120
