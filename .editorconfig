@@ -10,3 +10,10 @@ insert_final_newline = true
 
 [Makefile]
 indent_style = tab
+
+[{Dockerfile,*.Dockerfile}]
+indent_style = tab
+
+[*.sh]
+indent_size = 4
+indent_style = tab
