@@ -8,6 +8,8 @@
 	sw = switch
 	undo = !git reset HEAD~1 --mixed
 	amend = !git commit --amend --no-edit
+	who = shortlog -sn --no-merges
+	mostchanges = "!git log --format=format: --name-only --since=\"1 year ago\" | sort | uniq -c | sort -nr | head -20"
 
 [color]
 	ui = auto
