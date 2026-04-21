@@ -37,3 +37,8 @@ auto-format = true
 name = "scss"
 formatter = { command = 'prettier', args = ["--parser", "scss"] }
 auto-format = true
+
+[[language]]
+name = "astro"
+formatter = { command = 'prettier', args = ["--parser", "astro"] }
+auto-format = true
