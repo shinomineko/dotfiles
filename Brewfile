@@ -23,6 +23,5 @@ cask "1password"
 cask "ghostty"
 
 cask "font-atkinson-hyperlegible"
-cask "font-inconsolata"
 cask "font-iosevka-ss08"
 cask "font-sf-mono"

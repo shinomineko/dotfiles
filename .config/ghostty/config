@@ -1,6 +1,6 @@
 theme = Rose Pine Dawn
 
-font-family = Iosevka Charon Mono
+font-family = Iosevka SS08
 font-feature = -calt, -liga, -dlig
 font-size = 16
 font-thicken = true
